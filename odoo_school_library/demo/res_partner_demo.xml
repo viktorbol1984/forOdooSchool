@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="osl_author_demo_1" model="res.partner">
+        <field name="name">Harper Lee</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="osl_author_demo_2" model="res.partner">
+        <field name="name">George Orwell</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,3 @@
+"id","name","description","res_partner_id:id"
+osl_book_1,book1,cool,odoo_school_library.osl_author_demo_1
+osl_book_2,book2,good,odoo_school_library.osl_author_demo_2
