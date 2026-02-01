@@ -1,0 +1,20 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="disease_flu" model="hr.hospital.diseases">
+            <field name="name">Flu</field>
+            <field name="description">Flu</field>
+        </record>
+
+        <record id="disease_covid" model="hr.hospital.diseases">
+            <field name="name">COVID</field>
+            <field name="description">Coronavirus</field>
+        </record>
+
+        <record id="disease_covid" model="hr.hospital.diseases">
+            <field name="name">Smallpox</field>
+            <field name="description">Smallpox</field>
+        </record>
+
+    </data>
+</odoo>
