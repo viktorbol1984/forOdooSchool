@@ -10,12 +10,12 @@
     },
     'data': [
         'security/ir.model.access.csv',
-
+        'data/hr_hospital_diseases_data.xml',
         'views/hr_hospital_views.xml',
         'views/hr_hospital_menu.xml',
 
     ],
-    'demo': [],
+    'demo': ['demo/hr_hospital_doctors_demo.xml',],
     'installable': True,
     'auto_install': False,
     'images': ['static/description/icon.png'],

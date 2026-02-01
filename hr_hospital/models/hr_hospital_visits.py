@@ -11,3 +11,7 @@ class HrHospitalVisits(models.Model):
     )
 
     description = fields.Text()
+
+    doctor_id = fields.Many2one('hr.hospital.doctors', string='Doctor')
+    patient_id = fields.Many2one('hr.hospital.patients', string='Patient')
+    disease_id = fields.Many2one('hr.hospital.diseases', string='Disease')

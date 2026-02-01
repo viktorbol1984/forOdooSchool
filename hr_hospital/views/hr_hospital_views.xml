@@ -7,6 +7,10 @@
             <list>
                 <field name="name"/>
                 <field name="description"/>
+                <field name="doctor_id"/>
+                <field name="patient_id"/>
+                <field name="disease_id"/>
+                <field name="description"/>
             </list>
         </field>
     </record>
@@ -21,6 +25,10 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="description"/>
+                            <field name="doctor_id"/>
+                            <field name="patient_id"/>
+                            <field name="disease_id"/>
                             <field name="description"/>
                         </group>
                     </group>
