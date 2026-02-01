@@ -1,0 +1,155 @@
+<odoo>
+<!--                       Визиты                          -->
+    <record id="hr_hospital_visits_list" model="ir.ui.view">
+        <field name="name">hr.hospital.visits.list</field>
+        <field name="model">hr.hospital.visits</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_visits_form" model="ir.ui.view">
+        <field name="name">hr.hospital.visits.form</field>
+        <field name="model">hr.hospital.visits</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_visits_window" model="ir.actions.act_window">
+        <field name="name">Visits</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.visits</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+<!--    <menuitem id="hr_hospital_menu_visits"-->
+<!--              action="action_hr_hospital_visits_window"-->
+<!--              parent="hr_hospital_menu_visits"-->
+<!--              name="Visits" sequence="200"/>-->
+
+<!--&lt;!&ndash;                       Болезни                          &ndash;&gt;-->
+    <record id="hr_hospital_diseases_list" model="ir.ui.view">
+        <field name="name">hr.hospital.diseases.list</field>
+        <field name="model">hr.hospital.diseases</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diseases_form" model="ir.ui.view">
+        <field name="name">hr.hospital.diseases.form</field>
+        <field name="model">hr.hospital.diseases</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_diseases_window" model="ir.actions.act_window">
+        <field name="name">Diseases</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.diseases</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+<!--&lt;!&ndash;                       Доктора                          &ndash;&gt;-->
+    <record id="hr_hospital_doctors_list" model="ir.ui.view">
+        <field name="name">hr.hospital.doctors.list</field>
+        <field name="model">hr.hospital.doctors</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_doctors_form" model="ir.ui.view">
+        <field name="name">hr.hospital.doctors.form</field>
+        <field name="model">hr.hospital.doctors</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_doctors_window" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.doctors</field>
+        <field name="view_mode">list,form</field>
+    </record>
+<!--&lt;!&ndash;                       Пациенты                          &ndash;&gt;-->
+    <record id="hr_hospital_patients_list" model="ir.ui.view">
+        <field name="name">hr.hospital.patients.list</field>
+        <field name="model">hr.hospital.patients</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_patients_form" model="ir.ui.view">
+        <field name="name">hr.hospital.patients.form</field>
+        <field name="model">hr.hospital.patients</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_patients_window" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.patients</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
+

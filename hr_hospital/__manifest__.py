@@ -1,10 +1,9 @@
 {
-    'name': 'Odoo School Library',
+    'name': 'HR Hospital',
     'author': 'Viktor Bol',
-    'website': 'https://odoo.school/',
     'category': 'Customizations',
     'license': 'OPL-1',
-    'version': '19.0.2.1.1',
+    'version': '19.0.1.1.0',
     'depends': ['base',],
     'external_dependencies': {
         'python': [],
@@ -12,14 +11,11 @@
     'data': [
         'security/ir.model.access.csv',
 
-        'views/odoo_school_library_book_views.xml',
-        'views/odoo_school_library_menu.xml',
+        'views/hr_hospital_views.xml',
+        'views/hr_hospital_menu.xml',
 
     ],
-    'demo': [
-        'demo/res_partner_demo.xml',
-        'demo/odoo.school.library.book.csv',
-    ],
+    'demo': [],
     'installable': True,
     'auto_install': False,
     'images': ['static/description/icon.png'],
