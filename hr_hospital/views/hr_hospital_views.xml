@@ -1,5 +1,5 @@
 <odoo>
-<!--                       Визиты                          -->
+<!-- region Visits -->
     <record id="hr_hospital_visits_list" model="ir.ui.view">
         <field name="name">hr.hospital.visits.list</field>
         <field name="model">hr.hospital.visits</field>
@@ -43,13 +43,9 @@
         <field name="res_model">hr.hospital.visits</field>
         <field name="view_mode">list,form</field>
     </record>
+<!-- endregion -->
 
-<!--    <menuitem id="hr_hospital_menu_visits"-->
-<!--              action="action_hr_hospital_visits_window"-->
-<!--              parent="hr_hospital_menu_visits"-->
-<!--              name="Visits" sequence="200"/>-->
-
-<!--&lt;!&ndash;                       Болезни                          &ndash;&gt;-->
+<!--    region  Diseases        -->
     <record id="hr_hospital_diseases_list" model="ir.ui.view">
         <field name="name">hr.hospital.diseases.list</field>
         <field name="model">hr.hospital.diseases</field>
@@ -85,14 +81,20 @@
         <field name="res_model">hr.hospital.diseases</field>
         <field name="view_mode">list,form</field>
     </record>
+<!-- endregion -->
 
-<!--&lt;!&ndash;                       Доктора                          &ndash;&gt;-->
+<!--region        Doctors   -->
     <record id="hr_hospital_doctors_list" model="ir.ui.view">
         <field name="name">hr.hospital.doctors.list</field>
         <field name="model">hr.hospital.doctors</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="full_name"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="phone" widget="phone"/>
+                <field name="email" widget="email"/>
                 <field name="description"/>
             </list>
         </field>
@@ -109,6 +111,16 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
+                            <field name="last_name"/>
+                            <field name="first_name"/>
+                            <field name="patronymic"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="country_id"/>
+                            <field name="lang_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -122,13 +134,21 @@
         <field name="res_model">hr.hospital.doctors</field>
         <field name="view_mode">list,form</field>
     </record>
-<!--&lt;!&ndash;                       Пациенты                          &ndash;&gt;-->
+<!-- endregion -->
+
+<!-- region         Patients          -->
     <record id="hr_hospital_patients_list" model="ir.ui.view">
         <field name="name">hr.hospital.patients.list</field>
         <field name="model">hr.hospital.patients</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="full_name"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="primaryDoctor_id"/>
+                <field name="phone" widget="phone"/>
+                <field name="email" widget="email"/>
                 <field name="description"/>
             </list>
         </field>
@@ -145,6 +165,17 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
+                            <field name="last_name"/>
+                            <field name="first_name"/>
+                            <field name="patronymic"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="primaryDoctor_id"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="country_id"/>
+                            <field name="lang_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -158,6 +189,5 @@
         <field name="res_model">hr.hospital.patients</field>
         <field name="view_mode">list,form</field>
     </record>
-
+<!-- endregion -->
 </odoo>
-

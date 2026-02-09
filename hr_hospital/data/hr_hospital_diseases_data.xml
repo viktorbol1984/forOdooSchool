@@ -11,7 +11,7 @@
             <field name="description">Coronavirus</field>
         </record>
 
-        <record id="disease_covid" model="hr.hospital.diseases">
+        <record id="disease_smallpox" model="hr.hospital.diseases">
             <field name="name">Smallpox</field>
             <field name="description">Smallpox</field>
         </record>

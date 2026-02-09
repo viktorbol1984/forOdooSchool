@@ -1,3 +1,4 @@
+from . import hr_hospital_abstract_person
 from . import hr_hospital_visits
 from . import hr_hospital_diseases
 from . import hr_hospital_doctors
