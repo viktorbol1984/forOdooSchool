@@ -11,4 +11,9 @@ class Doctors(models.Model):
         default=True
     )
 
+    speciality_id = fields.Many2one(
+        comodel_name='hr.hospital.doctor.speciality',
+        string='Speciality'
+    )
+
     description = fields.Text()
