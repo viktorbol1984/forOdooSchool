@@ -6,6 +6,23 @@ class Patients(models.Model):
     _inherit = ['hr.hospital.abstract.person']
 
     name = fields.Char()
+    passport = fields.Char(size=10)
+    contact = fields.Many2one('hr.hospital.contact.person')
+    bloodGroup = fields.Selection(
+        selection=[
+            ('o_positive', 'O(I) Rh+'),
+            ('o_negative', 'O(I) Rh-'),
+            ('a_positive', 'A(II) Rh+'),
+            ('a_negative', 'A(II) Rh-'),
+            ('b_positive', 'B(III) Rh+'),
+            ('b_negative', 'B(III) Rh-'),
+            ('ab_positive', 'AB(IV) Rh+'),
+            ('ab_negative', 'AB(IV) Rh-'),
+        ],
+    )
+    allergies = fields.Text()
+    insurance = fields.Many2one(comodel_name='res.partner',domain=[('is_company', '=', True)],)
+    insurancePolicy = fields.Char(string='Insurance Policy')
 
     active = fields.Boolean(
         default=True

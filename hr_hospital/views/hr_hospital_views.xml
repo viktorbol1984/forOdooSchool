@@ -162,7 +162,7 @@
                 <header></header>
                 <sheet>
                     <group>
-                        <group>
+                        <group string="Base">
                             <field name="name"/>
                             <field name="description"/>
                             <field name="last_name"/>
@@ -176,6 +176,14 @@
                             <field name="email" widget="email"/>
                             <field name="country_id"/>
                             <field name="lang_id"/>
+                        </group>
+                        <group string="Additional">
+                            <field name="passport"/>
+                            <field name="contact"/>
+                            <field name="bloodGroup"/>
+                            <field name="allergies"/>
+                            <field name="insurance"/>
+                            <field name="insurancePolicy"/>
                         </group>
                     </group>
                 </sheet>
