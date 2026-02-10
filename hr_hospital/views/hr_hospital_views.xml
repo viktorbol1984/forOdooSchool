@@ -1,5 +1,5 @@
 <odoo>
-<!-- region Visits -->
+    <!-- region Visits -->
     <record id="hr_hospital_visits_list" model="ir.ui.view">
         <field name="name">hr.hospital.visits.list</field>
         <field name="model">hr.hospital.visits</field>
@@ -32,6 +32,18 @@
                             <field name="description"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Diagnosis">
+                            <field name="diagnosis_ids">
+                                <list editable="bottom">
+                                    <field name="visit_id"/>
+                                    <field name="disease_id"/>
+                                    <field name="diagnos_description"/>
+                                    <field name="approved_by_doctor_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -43,9 +55,9 @@
         <field name="res_model">hr.hospital.visits</field>
         <field name="view_mode">list,form</field>
     </record>
-<!-- endregion -->
+    <!-- endregion -->
 
-<!--    region  Diseases        -->
+    <!--    region  Diseases        -->
     <record id="hr_hospital_diseases_list" model="ir.ui.view">
         <field name="name">hr.hospital.diseases.list</field>
         <field name="model">hr.hospital.diseases</field>
@@ -81,9 +93,9 @@
         <field name="res_model">hr.hospital.diseases</field>
         <field name="view_mode">list,form</field>
     </record>
-<!-- endregion -->
+    <!-- endregion -->
 
-<!--region        Doctors   -->
+    <!--region        Doctors   -->
     <record id="hr_hospital_doctors_list" model="ir.ui.view">
         <field name="name">hr.hospital.doctors.list</field>
         <field name="model">hr.hospital.doctors</field>
@@ -108,7 +120,7 @@
                 <header></header>
                 <sheet>
                     <group>
-                        <group>
+                        <group string="Base">
                             <field name="name"/>
                             <field name="description"/>
                             <field name="last_name"/>
@@ -122,7 +134,30 @@
                             <field name="country_id"/>
                             <field name="lang_id"/>
                         </group>
+                        <group string="Add">
+                            <field name="user_id"/>
+                            <field name="speciality_id"/>
+                            <field name="is_intern"/>
+                            <field name="mentor_doctor_id"/>
+                            <field name="license_number"/>
+                            <field name="license_issue_date"/>
+                            <field name="years_of_experience"/>
+                            <field name="rating"/>
+                            <field name="education_country_id"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Work Schedule">
+                            <field name="schedule_ids">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="start_time" widget="float_time"/>
+                                    <field name="end_time" widget="float_time"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -134,9 +169,9 @@
         <field name="res_model">hr.hospital.doctors</field>
         <field name="view_mode">list,form</field>
     </record>
-<!-- endregion -->
+    <!-- endregion -->
 
-<!-- region         Patients          -->
+    <!-- region         Patients          -->
     <record id="hr_hospital_patients_list" model="ir.ui.view">
         <field name="name">hr.hospital.patients.list</field>
         <field name="model">hr.hospital.patients</field>
@@ -197,5 +232,5 @@
         <field name="res_model">hr.hospital.patients</field>
         <field name="view_mode">list,form</field>
     </record>
-<!-- endregion -->
+    <!-- endregion -->
 </odoo>
