@@ -29,6 +29,10 @@ class DoctorSchedule(models.Model):
 
     end_time = fields.Float()
 
+    _time_check = models.Constraint(
+        'CHECK(start_time <= end_time)',
+        'Start time cannot be later than end time.'
+    )
     schedule_type = fields.Selection(
         selection=[
             ('working_day', 'Working Day'),
