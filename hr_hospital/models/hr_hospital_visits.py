@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class HrHospitalVisits(models.Model):
     _name = 'hr.hospital.visits'
@@ -28,6 +29,7 @@ class HrHospitalVisits(models.Model):
 
     plan_datetime = fields.Datetime(
         string='Planned Date & Time',
+        required=True,
     )
 
     fact_datetime = fields.Datetime(
@@ -69,3 +71,49 @@ class HrHospitalVisits(models.Model):
     visit_cost = fields.Monetary(
         currency_field='currency_id',
     )
+
+    @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
+    def _check_up_visit(self):
+        for record in self:
+            if record.doctor_id and record.patient_id and record.plan_datetime:
+                visit_date = record.plan_datetime.date()
+
+                day_start = fields.Datetime.to_string(
+                    fields.Datetime.from_string(f'{visit_date} 00:00:00')
+                )
+                day_end = fields.Datetime.to_string(
+                    fields.Datetime.from_string(f'{visit_date} 23:59:59')
+                )
+
+                domain = [
+                    ('doctor_id', '=', record.doctor_id.id),
+                    ('patient_id', '=', record.patient_id.id),
+                    ('id', '!=', record.id),
+                    ('plan_datetime', '>=', day_start),
+                    ('plan_datetime', '<=', day_end)
+                ]
+
+                if self.search_count(domain) > 0:
+                    raise ValidationError(
+                        'Patient %s already has a visit with Doctor %s on %s!' % (
+                            record.patient_id.name,
+                            record.doctor_id.name,
+                            visit_date
+                        )
+                    )
+
+                history = self.env['hr.hospital.patient.doctor.history'].search([
+                    ('patient_id', '=', record.patient_id.id),
+                    ('doctor_id', '=', record.doctor_id.id),
+                    ('assignment_date', '<=', visit_date)
+                ], limit=1, order='assignment_date desc')
+
+                if not history:
+                    raise ValidationError(
+                        'Cannot create visit: Doctor %s was not assigned to Patient %s '
+                        'before %s!' % (
+                            record.doctor_id.name,
+                            record.patient_id.name,
+                            visit_date
+                        )
+                    )

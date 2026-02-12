@@ -23,5 +23,10 @@
               action="action_hr_hospital_patients_window"
               name="Patients" sequence="100"/>
 
+    <menuitem id="hr_hospital_menu_patient_doctor_history"
+              parent="hr_hospital_main_menu"
+              action="action_hr_hospital_patient_doctor_history_window"
+              name="History" sequence="100"/>
+
 
 </odoo>

@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Patients(models.Model):
     _name = 'hr.hospital.patients'
@@ -42,3 +43,15 @@ class Patients(models.Model):
     primaryDoctor_id = fields.Many2one('hr.hospital.doctors', string='Primary Care Doctor')
 
     description = fields.Text()
+
+    @api.constrains('birth_date')
+    def _check_up_patient(self):
+        for record in self:
+            if record.birth_date:
+                today = fields.Date.today()
+                age_days = (today - record.birth_date).days
+                age_years = age_days // 365
+                if age_years == 0:
+                    raise ValidationError('Patient age is 0')
+            else:
+                raise ValidationError('Birth date is empty')

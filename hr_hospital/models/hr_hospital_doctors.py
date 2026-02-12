@@ -69,7 +69,7 @@ class Doctors(models.Model):
         for record in self:
             if record.license_issue_date:
                 delta = today - record.license_issue_date
-                record.years_of_experience = delta.days // 365
+                record.years_of_experience = delta.days
             else:
                 record.years_of_experience = 0
 
@@ -89,3 +89,5 @@ class Doctors(models.Model):
         for record in self:
             if not record.is_intern and record.mentor_doctor_id:
                 raise ValidationError('Only interns can have a mentor doctor!')
+            if record.mentor_doctor_id == record:
+                raise ValidationError('Doctor cannot be their own mentor!')
