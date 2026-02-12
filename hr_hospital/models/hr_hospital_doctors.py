@@ -34,6 +34,11 @@ class Doctors(models.Model):
         required=True,
         copy=False
     )
+    # old fashioned way didn't work
+    _license_number_unique = models.Constraint(
+        'unique (license_number)',
+        'License number must be unique!'
+    )
 
     license_issue_date = fields.Date()
 
