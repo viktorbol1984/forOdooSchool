@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 class HrHospitalVisits(models.Model):
     _name = 'hr.hospital.visits'
@@ -14,7 +14,12 @@ class HrHospitalVisits(models.Model):
     description = fields.Text()
 
     doctor_id = fields.Many2one('hr.hospital.doctors', string='Doctor', required=True)
-    patient_id = fields.Many2one('hr.hospital.patients', string='Patient', required=True)
+    patient_id = fields.Many2one(
+        comodel_name='hr.hospital.patients',
+        string='Patient',
+        required=True,
+        ondelete='restrict',
+    )
     disease_id = fields.Many2one('hr.hospital.diseases', string='Disease')
 
     status = fields.Selection(
@@ -36,13 +41,6 @@ class HrHospitalVisits(models.Model):
         string='Actual Visit Date & Time',
         readonly=True,
         states={'completed': [('readonly', False)]},
-    )
-
-    patient_id = fields.Many2one(
-        comodel_name='hr.hospital.patients',
-        string='Patient',
-        required=True,
-        ondelete='restrict',
     )
 
     visit_type = fields.Selection(
@@ -71,6 +69,21 @@ class HrHospitalVisits(models.Model):
     visit_cost = fields.Monetary(
         currency_field='currency_id',
     )
+
+    def write(self, vals):
+        for rec in self:
+            if rec.fact_datetime:
+                if 'doctor_id' in vals or 'plan_datetime' in vals:
+                    raise ValidationError(
+                        'You cannot modify doctor or planned datetime. Visit is completed.'
+                    )
+        return super().write(vals)
+
+    def unlink(self):
+        for record in self:
+            if record.diagnosis_ids:
+                raise UserError('Cannot delete visit with diagnoses!')
+        return super().unlink()
 
     @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
     def _check_up_visit(self):
@@ -117,3 +130,4 @@ class HrHospitalVisits(models.Model):
                             visit_date
                         )
                     )
+

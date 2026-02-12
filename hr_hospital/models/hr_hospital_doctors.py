@@ -73,6 +73,17 @@ class Doctors(models.Model):
             else:
                 record.years_of_experience = 0
 
+    @api.constrains('active')
+    def _check_visits(self):
+        for record in self:
+            if not record.active:
+                active_visits = self.env['hr.hospital.visits'].search([
+                    ('doctor_id', '=', record.id),
+                    ('active', '=', True)
+                ])
+                if active_visits:
+                    raise ValidationError('Cannot archive doctor with active visits!')
+
     @api.constrains('rating')
     def _check_rating(self):
         for record in self:

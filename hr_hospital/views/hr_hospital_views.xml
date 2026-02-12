@@ -143,6 +143,7 @@
                             <field name="gender"/>
                             <field name="birth_date"/>
                             <field name="age"/>
+                            <field name="active"/>
                             <field name="phone" widget="phone"/>
                             <field name="email" widget="email"/>
                             <field name="country_id"/>
