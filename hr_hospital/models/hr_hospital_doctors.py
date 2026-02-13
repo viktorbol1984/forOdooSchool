@@ -102,3 +102,12 @@ class Doctors(models.Model):
                 raise ValidationError('Only interns can have a mentor doctor!')
             if record.mentor_doctor_id == record:
                 raise ValidationError('Doctor cannot be their own mentor!')
+
+    def name_get(self):
+        result = []
+        for record in self:
+            name = record.name or ''
+            if record.speciality_id and record.speciality_id.name:
+                name = f"{name} ({record.speciality_id.name})"
+            result.append((record.id, name))
+        return result

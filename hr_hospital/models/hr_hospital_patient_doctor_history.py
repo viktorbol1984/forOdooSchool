@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class PatientDoctorHistory(models.Model):
     _name = 'hr.hospital.patient.doctor.history'
@@ -30,3 +30,13 @@ class PatientDoctorHistory(models.Model):
     active = fields.Boolean(
         default=True
     )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        patient_ids = {vals.get('patient_id') for vals in vals_list if vals.get('patient_id')}
+        if patient_ids:
+            self.search([
+                ('patient_id', 'in', list(patient_ids)),
+                ('active', '=', True),
+            ]).write({'active': False})
+        return super().create(vals_list)
