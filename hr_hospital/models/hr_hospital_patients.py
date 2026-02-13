@@ -44,6 +44,23 @@ class Patients(models.Model):
 
     description = fields.Text()
 
+    def write(self, vals):
+        for rec in self:
+            if 'primaryDoctor_id' in vals:
+                new_doctor_id = vals.get('primaryDoctor_id')
+                if rec.primaryDoctor_id.id != new_doctor_id:
+                    self.env[
+                        'hr.hospital.patient.doctor.history'
+                    ].create({
+                        'patient_id': rec.id,
+                        'doctor_id': new_doctor_id,
+                        'assignment_date': fields.Date.today(),
+                        'change_date': fields.Date.today(),
+
+                    })
+
+        return super().write(vals)
+
     @api.constrains('birth_date')
     def _check_up_patient(self):
         for record in self:

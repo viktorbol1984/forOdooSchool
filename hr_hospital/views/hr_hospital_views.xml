@@ -257,4 +257,13 @@
         <field name="view_mode">list,form</field>
     </record>
     <!-- endregion -->
+
+    <!-- region         Diagnosis          -->
+    <record id="action_hr_hospital_hr_hospital_medical_diagnosis_window" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.medical.diagnosis</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- endregion -->
 </odoo>

@@ -50,3 +50,39 @@ class MedicalDiagnosis(models.Model):
         ],
         default='mild'
     )
+
+    def _get_current_doctor(self):
+        return self.env['hr.hospital.doctors'].search(
+            [('user_id', '=', self.env.user.id)],
+            limit=1
+        )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        doctor = self._get_current_doctor()
+        now = fields.Datetime.now()
+        for vals in vals_list:
+            if vals.get('is_approved'):
+                if doctor:
+                    vals['approved_by_doctor_id'] = doctor.id
+                vals['approval_date'] = now
+        return super().create(vals_list)
+
+    def write(self, vals):
+        doctor = self._get_current_doctor()
+        now = fields.Datetime.now()
+        for rec in self:
+            rec_vals = vals
+            if vals.get('is_approved') and not rec.is_approved:
+                rec_vals = dict(vals)
+                if doctor:
+                    rec_vals['approved_by_doctor_id'] = doctor.id
+                rec_vals['approval_date'] = now
+            elif vals.get('approved_by_doctor_id') and not rec.is_approved:
+                rec_vals = dict(vals)
+                rec_vals['is_approved'] = True
+                rec_vals['approval_date'] = now
+            super(MedicalDiagnosis, rec).write(rec_vals)
+        return True
+
+
