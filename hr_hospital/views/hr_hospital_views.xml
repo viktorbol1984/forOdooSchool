@@ -32,6 +32,7 @@
                             <field name="description"/>
                             <field name="plan_datetime"/>
                             <field name="fact_datetime"/>
+                            <field name="diagnoses_count"/>
                         </group>
                     </group>
                     <notebook>

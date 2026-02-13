@@ -69,7 +69,7 @@ class Doctors(models.Model):
         for record in self:
             if record.license_issue_date:
                 delta = today - record.license_issue_date
-                record.years_of_experience = delta.days
+                record.years_of_experience = delta.days/365
             else:
                 record.years_of_experience = 0
 

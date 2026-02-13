@@ -58,6 +58,11 @@ class HrHospitalVisits(models.Model):
         string='Diagnoses',
     )
 
+    diagnoses_count = fields.Integer(
+        compute='_compute_diagnoses_count',
+        store=True,
+    )
+
     recommendations = fields.Html()
 
     currency_id = fields.Many2one(
@@ -84,6 +89,11 @@ class HrHospitalVisits(models.Model):
             if record.diagnosis_ids:
                 raise UserError('Cannot delete visit with diagnoses!')
         return super().unlink()
+
+    @api.depends('diagnosis_ids')
+    def _compute_diagnoses_count(self):
+        for record in self:
+            record.diagnoses_count = len(record.diagnosis_ids)
 
     @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
     def _check_up_visit(self):
@@ -130,4 +140,3 @@ class HrHospitalVisits(models.Model):
                             visit_date
                         )
                     )
-
