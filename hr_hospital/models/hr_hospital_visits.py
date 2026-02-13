@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError, UserError
 
+
 class HrHospitalVisits(models.Model):
     _name = 'hr.hospital.visits'
     _description = 'Hospital Visits'
@@ -10,16 +11,24 @@ class HrHospitalVisits(models.Model):
     active = fields.Boolean(
         default=True
     )
-
     description = fields.Text()
 
     doctor_id = fields.Many2one('hr.hospital.doctors', string='Doctor', required=True)
+
+    mentor_doctor_id = fields.Many2one(
+        comodel_name='hr.hospital.doctors',
+        string='Mentor Doctor',
+        compute='_compute_mentor_doctor_id',
+        store=True,
+    )
+
     patient_id = fields.Many2one(
         comodel_name='hr.hospital.patients',
         string='Patient',
         required=True,
         ondelete='restrict',
     )
+
     disease_id = fields.Many2one('hr.hospital.diseases', string='Disease')
 
     status = fields.Selection(
@@ -95,6 +104,16 @@ class HrHospitalVisits(models.Model):
         for record in self:
             record.diagnoses_count = len(record.diagnosis_ids)
 
+    @api.onchange('patient_id')
+    def _onchange_patient_id(self):
+        if self.patient_id and self.patient_id.allergies:
+            return {
+                'warning': {
+                    'title': 'Allergy:',
+                    'message': self.patient_id.allergies
+                }
+            }
+
     @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
     def _check_up_visit(self):
         for record in self:
@@ -140,3 +159,11 @@ class HrHospitalVisits(models.Model):
                             visit_date
                         )
                     )
+
+    @api.depends('doctor_id', 'doctor_id.is_intern', 'doctor_id.mentor_doctor_id')
+    def _compute_mentor_doctor_id(self):
+        for record in self:
+            if record.doctor_id and record.doctor_id.is_intern:
+                record.mentor_doctor_id = record.doctor_id.mentor_doctor_id
+            else:
+                record.mentor_doctor_id = False

@@ -33,6 +33,7 @@
                             <field name="plan_datetime"/>
                             <field name="fact_datetime"/>
                             <field name="diagnoses_count"/>
+                            <field name="mentor_doctor_id"/>
                         </group>
                     </group>
                     <notebook>

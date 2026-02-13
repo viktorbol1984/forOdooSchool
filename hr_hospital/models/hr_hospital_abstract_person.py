@@ -77,3 +77,14 @@ class AbstractPerson(models.AbstractModel):
         for rec in self:
             if rec.email and not pattern.match(rec.email):
                 raise ValidationError("Wrong email")
+
+    @api.onchange('country_id')
+    def _onchange_country_id(self):
+        if not self.country_id or not self.country_id.code:
+            return
+        lang = self.env['res.lang'].search([
+            ('active', '=', True),
+            ('code', 'ilike', f'%_{self.country_id.code}')
+        ], limit=1)
+        if lang:
+            self.lang_id = lang.id
