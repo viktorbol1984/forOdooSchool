@@ -8,6 +8,7 @@ class DoctorSchedule(models.Model):
         comodel_name='hr.hospital.doctors',
         string='Doctor',
         required=True,
+        domain=[('speciality_id', '!=', False)],
     )
 
     day_of_week = fields.Selection(

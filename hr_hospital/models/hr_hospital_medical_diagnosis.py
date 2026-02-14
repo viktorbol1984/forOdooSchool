@@ -1,3 +1,5 @@
+from dateutil.relativedelta import relativedelta
+
 from odoo import models, fields, api
 
 class MedicalDiagnosis(models.Model):
@@ -7,11 +9,15 @@ class MedicalDiagnosis(models.Model):
     visit_id = fields.Many2one(
         comodel_name='hr.hospital.visits',
         string='Visit',
+        domain=lambda self: [
+            ('fact_datetime', '>=', fields.Datetime.now() - relativedelta(months=1))
+        ],
     )
 
     disease_id = fields.Many2one(
         comodel_name='hr.hospital.diseases',
         string='Disease',
+        domain=[('severity', 'in', ['high', 'critical'])],
     )
 
     diagnos_description = fields.Text(
@@ -84,5 +90,3 @@ class MedicalDiagnosis(models.Model):
                 rec_vals['approval_date'] = now
             super(MedicalDiagnosis, rec).write(rec_vals)
         return True
-
-

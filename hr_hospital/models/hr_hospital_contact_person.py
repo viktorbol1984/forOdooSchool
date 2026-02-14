@@ -11,4 +11,12 @@ class ContactPerson(models.Model):
         default=True
     )
 
+    patient_id = fields.Many2one(
+        comodel_name='hr.hospital.patients',
+        string='Patient',
+        domain=[
+            ('allergies', '!=', ''),
+        ],
+    )
+
     description = fields.Text()

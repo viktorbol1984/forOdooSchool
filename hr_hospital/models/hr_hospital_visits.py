@@ -13,7 +13,12 @@ class HrHospitalVisits(models.Model):
     )
     description = fields.Text()
 
-    doctor_id = fields.Many2one('hr.hospital.doctors', string='Doctor', required=True)
+    doctor_id = fields.Many2one(
+        comodel_name='hr.hospital.doctors',
+        string='Doctor',
+        required=True,
+        domain=[('license_number', '!=', False)],
+    )
 
     mentor_doctor_id = fields.Many2one(
         comodel_name='hr.hospital.doctors',
