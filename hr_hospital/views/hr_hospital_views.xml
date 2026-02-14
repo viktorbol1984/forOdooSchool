@@ -261,6 +261,23 @@
     <!-- endregion -->
 
     <!-- region         Diagnosis          -->
+    <record id="hr_hospital_medical_diagnosis_list" model="ir.ui.view">
+        <field name="name">hr.hospital.medical.diagnosis.list</field>
+        <field name="model">hr.hospital.medical.diagnosis</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="visit_id"/>
+                <field name="disease_id"/>
+                <field name="diagnos_description"/>
+                <field name="prescribed_treatment"/>
+                <field name="is_approved"/>
+                <field name="approved_by_doctor_id"/>
+                <field name="approval_date"/>
+                <field name="severity"/>
+            </list>
+        </field>
+    </record>
+
     <record id="action_hr_hospital_hr_hospital_medical_diagnosis_window" model="ir.actions.act_window">
         <field name="name">Diagnosis</field>
         <field name="type">ir.actions.act_window</field>

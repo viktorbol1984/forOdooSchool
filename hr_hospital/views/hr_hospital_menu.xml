@@ -28,10 +28,18 @@
               action="action_hr_hospital_patient_doctor_history_window"
               name="History" sequence="100"/>
 
-        <menuitem id="hr_hospital_menu_hr_hospital_medical_diagnosis"
+    <menuitem id="hr_hospital_menu_hr_hospital_medical_diagnosis"
               parent="hr_hospital_main_menu"
               action="action_hr_hospital_hr_hospital_medical_diagnosis_window"
               name="Diagnosis" sequence="100"/>
 
+    <menuitem id="hr_hospital_menu_wizards"
+              parent="hr_hospital_main_menu"
+              name="Wizards" sequence="200"/>
+
+    <menuitem id="hr_hospital_menu_disease_report_wizard"
+              parent="hr_hospital_menu_wizards"
+              action="action_hr_hospital_disease_report_wizard"
+              name="Disease Report" sequence="10"/>
 
 </odoo>
