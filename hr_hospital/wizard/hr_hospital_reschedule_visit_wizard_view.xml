@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_hr_hospital_reschedule_visit_wizard" model="ir.ui.view">
+        <field name="name">hr.hospital.reschedule.visit.wizard.form</field>
+        <field name="model">hr.hospital.reschedule.visit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reschedule Visit">
+                <group>
+                    <field name="visit_id"/>
+                    <field name="new_doctor_id"/>
+                    <field name="new_date"/>
+                    <field name="new_time"/>
+                    <field name="reschedule_reason"/>
+                </group>
+                <footer>
+                    <button string="Apply" type="object" name="action_apply" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_reschedule_visit_wizard" model="ir.actions.act_window">
+        <field name="name">Reschedule Visit</field>
+        <field name="res_model">hr.hospital.reschedule.visit.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
