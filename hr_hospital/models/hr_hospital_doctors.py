@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+
 class Doctors(models.Model):
     _name = 'hr.hospital.doctors'
     _description = 'Doctors'
@@ -82,7 +83,7 @@ class Doctors(models.Model):
                     ('active', '=', True)
                 ])
                 if active_visits:
-                    raise ValidationError('Cannot archive doctor with active visits!')
+                    raise ValidationError('Can`t arch. doc. with visits!')
 
     @api.constrains('rating')
     def _check_rating(self):

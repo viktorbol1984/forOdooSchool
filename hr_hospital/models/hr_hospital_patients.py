@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+
 class Patients(models.Model):
     _name = 'hr.hospital.patients'
     _description = 'Patients'
@@ -27,7 +28,7 @@ class Patients(models.Model):
 
     allergies = fields.Text()
 
-    insurance = fields.Many2one(comodel_name='res.partner',domain=[('is_company', '=', True)],)
+    insurance = fields.Many2one(comodel_name='res.partner', domain=[('is_company', '=', True)], )
 
     insurancePolicy = fields.Char(string='Insurance Policy')
 

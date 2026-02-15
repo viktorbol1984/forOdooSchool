@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError, UserError
 
+
 class HrHospitalVisits(models.Model):
     _name = 'hr.hospital.visits'
     _description = 'Hospital Visits'

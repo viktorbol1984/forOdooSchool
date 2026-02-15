@@ -2,6 +2,7 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import re
 
+
 class AbstractPerson(models.AbstractModel):
     _name = 'hr.hospital.abstract.person'
     _description = 'Abstract Person Model'
@@ -62,7 +63,6 @@ class AbstractPerson(models.AbstractModel):
         for rec in self:
             parts = [rec.last_name, rec.first_name, rec.patronymic]
             rec.full_name = " ".join(p for p in parts if p)
-
 
     @api.constrains('phone')
     def _check_phone(self):

@@ -6,6 +6,7 @@ from datetime import datetime, time
 
 from odoo import models, fields, api
 
+
 class PatientCardExportWizard(models.TransientModel):
     _name = 'hr.hospital.patient.card.export.wizard'
     _description = 'Patient Card Export Wizard'

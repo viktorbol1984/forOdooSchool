@@ -1,5 +1,6 @@
 from odoo import models, fields
 
+
 class DoctorSchedule(models.Model):
     _name = 'hr.hospital.doctor.schedule'
     _description = 'Doctor Schedule'

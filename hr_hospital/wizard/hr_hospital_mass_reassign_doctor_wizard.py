@@ -1,9 +1,9 @@
 from odoo import models, fields, api
 
+
 class MassReassignDoctorWizard(models.TransientModel):
     _name = 'hr.hospital.reassign.doctor.wizard'
     _description = 'Mass Reassign Doctor Wizard'
-
 
     # old_doctor_id = fields.Many2one( not needed yet, but maybe
     #     comodel_name='hr.hospital.doctors',

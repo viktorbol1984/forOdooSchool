@@ -2,6 +2,7 @@ from dateutil.relativedelta import relativedelta
 
 from odoo import models, fields, api
 
+
 class MedicalDiagnosis(models.Model):
     _name = 'hr.hospital.medical.diagnosis'
     _description = 'Medical Diagnosis'

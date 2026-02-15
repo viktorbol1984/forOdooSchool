@@ -1,5 +1,6 @@
 from odoo import models, fields
 
+
 class HrHospitalDiseaseReportWizard(models.TransientModel):
     _name = 'hr.hospital.disease.report.wizard'
     _description = 'Disease Report Wizard'

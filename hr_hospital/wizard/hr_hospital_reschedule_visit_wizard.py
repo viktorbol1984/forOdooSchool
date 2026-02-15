@@ -2,6 +2,7 @@ from datetime import datetime, time, timedelta
 
 from odoo import models, fields
 
+
 class RescheduleVisitWizard(models.TransientModel):
     _name = 'hr.hospital.reschedule.visit.wizard'
     _description = 'Reschedule Visit Wizard'
