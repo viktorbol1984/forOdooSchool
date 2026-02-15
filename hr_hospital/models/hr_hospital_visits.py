@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError, UserError
 
-
 class HrHospitalVisits(models.Model):
     _name = 'hr.hospital.visits'
     _description = 'Hospital Visits'
@@ -89,6 +88,31 @@ class HrHospitalVisits(models.Model):
         currency_field='currency_id',
     )
 
+    @api.onchange('doctor_id', 'patient_id', 'plan_datetime')
+    def _onchange_plan_datetime_set_doctor_domain(self):
+        domain = []
+        schedule_domain = []
+        if self.plan_datetime:
+            plan_date = fields.Date.to_date(self.plan_datetime)
+            schedules = self.env['hr.hospital.doctor.schedule'].search([
+                ('date', '=', plan_date),
+                ('schedule_type', '=', 'working_day'),
+            ])
+            schedule_domain = [('id', 'in', schedules.mapped('doctor_id').ids)]
+        patient = self.patient_id
+        if patient and (patient.country_id or patient.lang_id):
+            country_id = patient.country_id.id if patient.country_id else False
+            lang_id = patient.lang_id.id if patient.lang_id else False
+            domain = [
+                '|', '|',
+                ('country_id', '=', country_id),
+                ('education_country_id', '=', country_id),
+                ('lang_id', '=', lang_id),
+            ]
+        if schedule_domain:
+            domain = ['&'] + domain + schedule_domain if domain else schedule_domain
+        return {'domain': {'doctor_id': domain}}
+
     def write(self, vals):
         for rec in self:
             if rec.fact_datetime:
@@ -163,6 +187,40 @@ class HrHospitalVisits(models.Model):
                             record.patient_id.name,
                             visit_date
                         )
+                    )
+
+    @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
+    def _check_doctor_availability_and_match(self):
+        for record in self:
+            if record.doctor_id and record.plan_datetime:
+                plan_date = fields.Date.to_date(record.plan_datetime)
+                schedule = self.env['hr.hospital.doctor.schedule'].search([
+                    ('doctor_id', '=', record.doctor_id.id),
+                    ('date', '=', plan_date),
+                    ('schedule_type', '=', 'working_day'),
+                ], limit=1)
+                if not schedule:
+                    raise ValidationError(
+                        'Doctor is not available on the selected date.'
+                    )
+            if record.doctor_id and record.patient_id:
+                patient = record.patient_id
+                same_country = (
+                    patient.country_id
+                    and record.doctor_id.country_id == patient.country_id
+                )
+                education_country = (
+                    patient.country_id
+                    and record.doctor_id.education_country_id == patient.country_id
+                )
+                same_lang = (
+                    patient.lang_id
+                    and record.doctor_id.lang_id == patient.lang_id
+                )
+                if not (same_country or education_country or same_lang):
+                    raise ValidationError(
+                        'Doctor does not match patient country, education country, '
+                        'or language.'
                     )
 
     @api.depends('doctor_id', 'doctor_id.is_intern', 'doctor_id.mentor_doctor_id')
