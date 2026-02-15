@@ -1,0 +1,1304 @@
+<odoo>
+
+    <!--speciality-->
+    <record id="spec_cardio" model="hr.hospital.doctor.speciality">
+        <field name="name">Cardiology</field>
+        <field name="code">CAR</field>
+        <field name="description">Heart and cardiovascular system.</field>
+    </record>
+    <record id="spec_neuro" model="hr.hospital.doctor.speciality">
+        <field name="name">Neurology</field>
+        <field name="code">NEU</field>
+        <field name="description">Nervous system and brain.</field>
+    </record>
+    <record id="spec_pedia" model="hr.hospital.doctor.speciality">
+        <field name="name">Pediatrics</field>
+        <field name="code">PED</field>
+        <field name="description">Child health.</field>
+    </record>
+    <record id="spec_surg" model="hr.hospital.doctor.speciality">
+        <field name="name">Surgery</field>
+        <field name="code">SUR</field>
+        <field name="description">Surgical care.</field>
+    </record>
+    <record id="spec_derm" model="hr.hospital.doctor.speciality">
+        <field name="name">Dermatology</field>
+        <field name="code">DER</field>
+        <field name="description">Skin and related conditions.</field>
+    </record>
+
+    <!--speciality-->
+    <record id="user_doc_1" model="res.users">
+        <field name="name">Dr. John Carter</field>
+        <field name="login">doctor1</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_2" model="res.users">
+        <field name="name">Dr. Sofia Novak</field>
+        <field name="login">doctor2</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_3" model="res.users">
+        <field name="name">Dr. Liam Wright</field>
+        <field name="login">doctor3</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_4" model="res.users">
+        <field name="name">Dr. Emma Klein</field>
+        <field name="login">doctor4</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_5" model="res.users">
+        <field name="name">Dr. Mateo Cruz</field>
+        <field name="login">doctor5</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_6" model="res.users">
+        <field name="name">Dr. Hana Volkov</field>
+        <field name="login">doctor6</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_7" model="res.users">
+        <field name="name">Dr. Intern Alex</field>
+        <field name="login">doctor7</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+    <record id="user_doc_8" model="res.users">
+        <field name="name">Dr. Intern Yulia</field>
+        <field name="login">doctor8</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!--doctors-->
+    <record id="doctor_1" model="hr.hospital.doctors">
+        <field name="name">John Carter</field>
+        <field name="last_name">Carter</field>
+        <field name="first_name">John</field>
+        <field name="gender">male</field>
+        <field name="user_id" ref="user_doc_1"/>
+        <field name="speciality_id" ref="spec_cardio"/>
+        <field name="license_number">LIC-1001</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="education_country_id" ref="base.us"/>
+        <field name="rating">4.8</field>
+    </record>
+    <record id="doctor_2" model="hr.hospital.doctors">
+        <field name="name">Sofia Novak</field>
+        <field name="last_name">Novak</field>
+        <field name="first_name">Sofia</field>
+        <field name="gender">female</field>
+        <field name="user_id" ref="user_doc_2"/>
+        <field name="speciality_id" ref="spec_neuro"/>
+        <field name="license_number">LIC-1002</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="education_country_id" ref="base.de"/>
+        <field name="rating">4.5</field>
+    </record>
+    <record id="doctor_3" model="hr.hospital.doctors">
+        <field name="name">Liam Wright</field>
+        <field name="last_name">Wright</field>
+        <field name="first_name">Liam</field>
+        <field name="gender">male</field>
+        <field name="user_id" ref="user_doc_3"/>
+        <field name="speciality_id" ref="spec_pedia"/>
+        <field name="license_number">LIC-1003</field>
+        <field name="country_id" ref="base.uk"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="education_country_id" ref="base.uk"/>
+        <field name="rating">4.2</field>
+    </record>
+    <record id="doctor_4" model="hr.hospital.doctors">
+        <field name="name">Emma Klein</field>
+        <field name="last_name">Klein</field>
+        <field name="first_name">Emma</field>
+        <field name="gender">female</field>
+        <field name="user_id" ref="user_doc_4"/>
+        <field name="speciality_id" ref="spec_surg"/>
+        <field name="license_number">LIC-1004</field>
+        <field name="country_id" ref="base.de"/>
+        <field name="lang_id" ref="base.lang_de"/>
+        <field name="education_country_id" ref="base.de"/>
+        <field name="rating">4.1</field>
+    </record>
+    <record id="doctor_5" model="hr.hospital.doctors">
+        <field name="name">Mateo Cruz</field>
+        <field name="last_name">Cruz</field>
+        <field name="first_name">Mateo</field>
+        <field name="gender">male</field>
+        <field name="user_id" ref="user_doc_5"/>
+        <field name="speciality_id" ref="spec_derm"/>
+        <field name="license_number">LIC-1005</field>
+        <field name="country_id" ref="base.es"/>
+        <field name="lang_id" ref="base.lang_es"/>
+        <field name="education_country_id" ref="base.es"/>
+        <field name="rating">4.0</field>
+    </record>
+    <record id="doctor_6" model="hr.hospital.doctors">
+        <field name="name">Hana Volkov</field>
+        <field name="last_name">Volkov</field>
+        <field name="first_name">Hana</field>
+        <field name="gender">female</field>
+        <field name="user_id" ref="user_doc_6"/>
+        <field name="speciality_id" ref="spec_cardio"/>
+        <field name="license_number">LIC-1006</field>
+        <field name="country_id" ref="base.pl"/>
+        <field name="lang_id" ref="base.lang_pl"/>
+        <field name="education_country_id" ref="base.de"/>
+        <field name="rating">3.9</field>
+    </record>
+    <record id="doctor_7" model="hr.hospital.doctors">
+        <field name="name">Alex Intern</field>
+        <field name="last_name">Intern</field>
+        <field name="first_name">Alex</field>
+        <field name="gender">male</field>
+        <field name="user_id" ref="user_doc_7"/>
+        <field name="speciality_id" ref="spec_pedia"/>
+        <field name="license_number">LIC-1007</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="education_country_id" ref="base.ua"/>
+        <field name="is_intern">True</field>
+        <field name="mentor_doctor_id" ref="doctor_3"/>
+    </record>
+    <record id="doctor_8" model="hr.hospital.doctors">
+        <field name="name">Yulia Intern</field>
+        <field name="last_name">Intern</field>
+        <field name="first_name">Yulia</field>
+        <field name="gender">female</field>
+        <field name="user_id" ref="user_doc_8"/>
+        <field name="speciality_id" ref="spec_neuro"/>
+        <field name="license_number">LIC-1008</field>
+        <field name="country_id" ref="base.pl"/>
+        <field name="lang_id" ref="base.lang_pl"/>
+        <field name="education_country_id" ref="base.ua"/>
+        <field name="is_intern">True</field>
+        <field name="mentor_doctor_id" ref="doctor_2"/>
+    </record>
+
+    <!--diseases-->
+    <record id="disease_resp" model="hr.hospital.diseases">
+        <field name="name">Respiratory Diseases</field>
+        <field name="severity">medium</field>
+        <field name="affected_country_ids" eval="[(6, 0, [ref('base.us'), ref('base.ua')])]"/>
+    </record>
+    <record id="disease_resp_flu" model="hr.hospital.diseases">
+        <field name="name">Influenza</field>
+        <field name="parent_id" ref="disease_resp"/>
+        <field name="severity">high</field>
+        <field name="is_contagious">True</field>
+    </record>
+    <record id="disease_resp_flu_comp" model="hr.hospital.diseases">
+        <field name="name">Influenza Complications</field>
+        <field name="parent_id" ref="disease_resp_flu"/>
+        <field name="severity">critical</field>
+        <field name="is_contagious">True</field>
+    </record>
+    <record id="disease_resp_pneum" model="hr.hospital.diseases">
+        <field name="name">Pneumonia</field>
+        <field name="parent_id" ref="disease_resp"/>
+        <field name="severity">critical</field>
+        <field name="is_contagious">True</field>
+    </record>
+    <record id="disease_cardio" model="hr.hospital.diseases">
+        <field name="name">Cardiovascular Diseases</field>
+        <field name="severity">medium</field>
+        <field name="affected_country_ids" eval="[(6, 0, [ref('base.us'), ref('base.de')])]"/>
+    </record>
+    <record id="disease_cardio_htn" model="hr.hospital.diseases">
+        <field name="name">Hypertension</field>
+        <field name="parent_id" ref="disease_cardio"/>
+        <field name="severity">high</field>
+    </record>
+    <record id="disease_cardio_mi" model="hr.hospital.diseases">
+        <field name="name">Myocardial Infarction</field>
+        <field name="parent_id" ref="disease_cardio"/>
+        <field name="severity">critical</field>
+    </record>
+    <record id="disease_neuro" model="hr.hospital.diseases">
+        <field name="name">Neurological Diseases</field>
+        <field name="severity">medium</field>
+        <field name="affected_country_ids" eval="[(6, 0, [ref('base.pl'), ref('base.ua')])]"/>
+    </record>
+    <record id="disease_neuro_mig" model="hr.hospital.diseases">
+        <field name="name">Migraine</field>
+        <field name="parent_id" ref="disease_neuro"/>
+        <field name="severity">high</field>
+    </record>
+    <record id="disease_neuro_stroke" model="hr.hospital.diseases">
+        <field name="name">Stroke</field>
+        <field name="parent_id" ref="disease_neuro"/>
+        <field name="severity">critical</field>
+    </record>
+    <record id="disease_derm" model="hr.hospital.diseases">
+        <field name="name">Dermatology</field>
+        <field name="severity">low</field>
+    </record>
+    <record id="disease_derm_psor" model="hr.hospital.diseases">
+        <field name="name">Psoriasis</field>
+        <field name="parent_id" ref="disease_derm"/>
+        <field name="severity">high</field>
+    </record>
+    <record id="disease_pedia" model="hr.hospital.diseases">
+        <field name="name">Pediatric Conditions</field>
+        <field name="severity">medium</field>
+    </record>
+    <record id="disease_pedia_asth" model="hr.hospital.diseases">
+        <field name="name">Childhood Asthma</field>
+        <field name="parent_id" ref="disease_pedia"/>
+        <field name="severity">high</field>
+    </record>
+
+    <!--patients-->
+    <record id="patient_1" model="hr.hospital.patients">
+        <field name="name">Olivia Brown</field>
+        <field name="last_name">Brown</field>
+        <field name="first_name">Olivia</field>
+        <field name="birth_date">1990-05-15</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="allergies">Peanuts</field>
+        <field name="primaryDoctor_id" ref="doctor_1"/>
+    </record>
+    <record id="patient_2" model="hr.hospital.patients">
+        <field name="name">Andriy Shevchenko</field>
+        <field name="last_name">Shevchenko</field>
+        <field name="first_name">Andriy</field>
+        <field name="birth_date">1985-11-02</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="allergies">Penicillin</field>
+        <field name="primaryDoctor_id" ref="doctor_2"/>
+    </record>
+    <record id="patient_3" model="hr.hospital.patients">
+        <field name="name">Mia Thompson</field>
+        <field name="last_name">Thompson</field>
+        <field name="first_name">Mia</field>
+        <field name="birth_date">2001-03-09</field>
+        <field name="country_id" ref="base.uk"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="allergies">Latex</field>
+        <field name="primaryDoctor_id" ref="doctor_3"/>
+    </record>
+    <record id="patient_4" model="hr.hospital.patients">
+        <field name="name">Jan Kowalski</field>
+        <field name="last_name">Kowalski</field>
+        <field name="first_name">Jan</field>
+        <field name="birth_date">1978-07-21</field>
+        <field name="country_id" ref="base.pl"/>
+        <field name="lang_id" ref="base.lang_pl"/>
+        <field name="allergies">Dust</field>
+        <field name="primaryDoctor_id" ref="doctor_6"/>
+    </record>
+    <record id="patient_5" model="hr.hospital.patients">
+        <field name="name">Isabella Rossi</field>
+        <field name="last_name">Rossi</field>
+        <field name="first_name">Isabella</field>
+        <field name="birth_date">1995-12-12</field>
+        <field name="country_id" ref="base.es"/>
+        <field name="lang_id" ref="base.lang_es"/>
+        <field name="allergies">Seafood</field>
+        <field name="primaryDoctor_id" ref="doctor_5"/>
+    </record>
+    <record id="patient_6" model="hr.hospital.patients">
+        <field name="name">Noah Miller</field>
+        <field name="last_name">Miller</field>
+        <field name="first_name">Noah</field>
+        <field name="birth_date">1982-09-18</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="allergies">Pollen</field>
+        <field name="primaryDoctor_id" ref="doctor_1"/>
+    </record>
+    <record id="patient_7" model="hr.hospital.patients">
+        <field name="name">Anna Novak</field>
+        <field name="last_name">Novak</field>
+        <field name="first_name">Anna</field>
+        <field name="birth_date">1999-04-02</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="allergies">Cats</field>
+        <field name="primaryDoctor_id" ref="doctor_7"/>
+    </record>
+    <record id="patient_8" model="hr.hospital.patients">
+        <field name="name">Oleh Petrenko</field>
+        <field name="last_name">Petrenko</field>
+        <field name="first_name">Oleh</field>
+        <field name="birth_date">1970-01-10</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="allergies">None</field>
+        <field name="primaryDoctor_id" ref="doctor_2"/>
+    </record>
+    <record id="patient_9" model="hr.hospital.patients">
+        <field name="name">Lucas Ferreira</field>
+        <field name="last_name">Ferreira</field>
+        <field name="first_name">Lucas</field>
+        <field name="birth_date">1992-06-30</field>
+        <field name="country_id" ref="base.de"/>
+        <field name="lang_id" ref="base.lang_de"/>
+        <field name="allergies">Shellfish</field>
+        <field name="primaryDoctor_id" ref="doctor_4"/>
+    </record>
+    <record id="patient_10" model="hr.hospital.patients">
+        <field name="name">Sofia Martin</field>
+        <field name="last_name">Martin</field>
+        <field name="first_name">Sofia</field>
+        <field name="birth_date">2003-02-14</field>
+        <field name="country_id" ref="base.es"/>
+        <field name="lang_id" ref="base.lang_es"/>
+        <field name="allergies">Milk</field>
+        <field name="primaryDoctor_id" ref="doctor_5"/>
+    </record>
+    <record id="patient_11" model="hr.hospital.patients">
+        <field name="name">Maksym Bondar</field>
+        <field name="last_name">Bondar</field>
+        <field name="first_name">Maksym</field>
+        <field name="birth_date">1988-08-08</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="allergies">Gluten</field>
+        <field name="primaryDoctor_id" ref="doctor_8"/>
+    </record>
+    <record id="patient_12" model="hr.hospital.patients">
+        <field name="name">Eva Novak</field>
+        <field name="last_name">Novak</field>
+        <field name="first_name">Eva</field>
+        <field name="birth_date">1997-05-05</field>
+        <field name="country_id" ref="base.pl"/>
+        <field name="lang_id" ref="base.lang_pl"/>
+        <field name="allergies">Nuts</field>
+        <field name="primaryDoctor_id" ref="doctor_6"/>
+    </record>
+    <record id="patient_13" model="hr.hospital.patients">
+        <field name="name">Daniel Green</field>
+        <field name="last_name">Green</field>
+        <field name="first_name">Daniel</field>
+        <field name="birth_date">1981-12-01</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="allergies">Aspirin</field>
+        <field name="primaryDoctor_id" ref="doctor_1"/>
+    </record>
+    <record id="patient_14" model="hr.hospital.patients">
+        <field name="name">Olena Ivashko</field>
+        <field name="last_name">Ivashko</field>
+        <field name="first_name">Olena</field>
+        <field name="birth_date">2000-10-22</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="lang_id" ref="base.lang_uk_UA"/>
+        <field name="allergies">Bee stings</field>
+        <field name="primaryDoctor_id" ref="doctor_7"/>
+    </record>
+    <record id="patient_15" model="hr.hospital.patients">
+        <field name="name">George Hill</field>
+        <field name="last_name">Hill</field>
+        <field name="first_name">George</field>
+        <field name="birth_date">1976-03-17</field>
+        <field name="country_id" ref="base.uk"/>
+        <field name="lang_id" ref="base.lang_en"/>
+        <field name="allergies">None</field>
+        <field name="primaryDoctor_id" ref="doctor_3"/>
+    </record>
+
+    <!--contact.person-->
+    <record id="contact_1" model="hr.hospital.contact.person">
+        <field name="name">Emma Brown</field>
+        <field name="patient_id" ref="patient_1"/>
+    </record>
+    <record id="contact_2" model="hr.hospital.contact.person">
+        <field name="name">Serhii Shevchenko</field>
+        <field name="patient_id" ref="patient_2"/>
+    </record>
+    <record id="contact_3" model="hr.hospital.contact.person">
+        <field name="name">Ethan Thompson</field>
+        <field name="patient_id" ref="patient_3"/>
+    </record>
+    <record id="contact_4" model="hr.hospital.contact.person">
+        <field name="name">Kasia Kowalska</field>
+        <field name="patient_id" ref="patient_4"/>
+    </record>
+    <record id="contact_5" model="hr.hospital.contact.person">
+        <field name="name">Marco Rossi</field>
+        <field name="patient_id" ref="patient_5"/>
+    </record>
+    <record id="contact_6" model="hr.hospital.contact.person">
+        <field name="name">Sara Miller</field>
+        <field name="patient_id" ref="patient_6"/>
+    </record>
+    <record id="contact_7" model="hr.hospital.contact.person">
+        <field name="name">Iryna Novak</field>
+        <field name="patient_id" ref="patient_7"/>
+    </record>
+    <record id="contact_8" model="hr.hospital.contact.person">
+        <field name="name">Oksana Petrenko</field>
+        <field name="patient_id" ref="patient_8"/>
+    </record>
+    <record id="contact_9" model="hr.hospital.contact.person">
+        <field name="name">Maria Ferreira</field>
+        <field name="patient_id" ref="patient_9"/>
+    </record>
+    <record id="contact_10" model="hr.hospital.contact.person">
+        <field name="name">Luis Martin</field>
+        <field name="patient_id" ref="patient_10"/>
+    </record>
+    <record id="contact_11" model="hr.hospital.contact.person">
+        <field name="name">Olha Bondar</field>
+        <field name="patient_id" ref="patient_11"/>
+    </record>
+    <record id="contact_12" model="hr.hospital.contact.person">
+        <field name="name">Piotr Novak</field>
+        <field name="patient_id" ref="patient_12"/>
+    </record>
+    <record id="contact_13" model="hr.hospital.contact.person">
+        <field name="name">Grace Green</field>
+        <field name="patient_id" ref="patient_13"/>
+    </record>
+    <record id="contact_14" model="hr.hospital.contact.person">
+        <field name="name">Yaroslav Ivashko</field>
+        <field name="patient_id" ref="patient_14"/>
+    </record>
+    <record id="contact_15" model="hr.hospital.contact.person">
+        <field name="name">Oliver Hill</field>
+        <field name="patient_id" ref="patient_15"/>
+    </record>
+
+    <!--patients-->
+    <record id="patient_1" model="hr.hospital.patients">
+        <field name="contact" ref="contact_1"/>
+    </record>
+    <record id="patient_2" model="hr.hospital.patients">
+        <field name="contact" ref="contact_2"/>
+    </record>
+    <record id="patient_3" model="hr.hospital.patients">
+        <field name="contact" ref="contact_3"/>
+    </record>
+    <record id="patient_4" model="hr.hospital.patients">
+        <field name="contact" ref="contact_4"/>
+    </record>
+    <record id="patient_5" model="hr.hospital.patients">
+        <field name="contact" ref="contact_5"/>
+    </record>
+    <record id="patient_6" model="hr.hospital.patients">
+        <field name="contact" ref="contact_6"/>
+    </record>
+    <record id="patient_7" model="hr.hospital.patients">
+        <field name="contact" ref="contact_7"/>
+    </record>
+    <record id="patient_8" model="hr.hospital.patients">
+        <field name="contact" ref="contact_8"/>
+    </record>
+    <record id="patient_9" model="hr.hospital.patients">
+        <field name="contact" ref="contact_9"/>
+    </record>
+    <record id="patient_10" model="hr.hospital.patients">
+        <field name="contact" ref="contact_10"/>
+    </record>
+    <record id="patient_11" model="hr.hospital.patients">
+        <field name="contact" ref="contact_11"/>
+    </record>
+    <record id="patient_12" model="hr.hospital.patients">
+        <field name="contact" ref="contact_12"/>
+    </record>
+    <record id="patient_13" model="hr.hospital.patients">
+        <field name="contact" ref="contact_13"/>
+    </record>
+    <record id="patient_14" model="hr.hospital.patients">
+        <field name="contact" ref="contact_14"/>
+    </record>
+    <record id="patient_15" model="hr.hospital.patients">
+        <field name="contact" ref="contact_15"/>
+    </record>
+
+    <!--history-->
+    <record id="history_1" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_1"/>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=60))"/>
+    </record>
+    <record id="history_2" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_2"/>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=45))"/>
+    </record>
+    <record id="history_3" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_3"/>
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=40))"/>
+    </record>
+    <record id="history_4" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_4"/>
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=30))"/>
+    </record>
+    <record id="history_5" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_5"/>
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=28))"/>
+    </record>
+    <record id="history_6" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_6"/>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=25))"/>
+    </record>
+    <record id="history_7" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_7"/>
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=20))"/>
+    </record>
+    <record id="history_8" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_8"/>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=20))"/>
+    </record>
+    <record id="history_9" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_9"/>
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=18))"/>
+    </record>
+    <record id="history_10" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_10"/>
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=18))"/>
+    </record>
+    <record id="history_11" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_11"/>
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=15))"/>
+    </record>
+    <record id="history_12" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_12"/>
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=15))"/>
+    </record>
+    <record id="history_13" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_13"/>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=12))"/>
+    </record>
+    <record id="history_14" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_14"/>
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=10))"/>
+    </record>
+    <record id="history_15" model="hr.hospital.patient.doctor.history">
+        <field name="patient_id" ref="patient_15"/>
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="assignment_date" eval="(datetime.now().date() - timedelta(days=8))"/>
+    </record>
+
+    <!--schedule-->
+    <record id="schedule_doc1_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc1_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc1_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc1_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc1_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+  <record id="schedule_doc2_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc2_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc2_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc2_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc2_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc3_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc3_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc3_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc3_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc3_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc4_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc4_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc4_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc4_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc4_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc5_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc5_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc5_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc5_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc5_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc6_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc6_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc6_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc6_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc6_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">17.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc7_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc7_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc7_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc7_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc7_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc8_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="day_of_week">monday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc8_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="day_of_week">tuesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc8_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="day_of_week">wednesday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc8_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="day_of_week">thursday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+    <record id="schedule_doc8_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="day_of_week">friday</field>
+        <field name="date" eval="(datetime.now().date() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4))"/>
+        <field name="start_time">9.0</field>
+        <field name="end_time">15.0</field>
+        <field name="schedule_type">working_day</field>
+    </record>
+
+    <!--visits-->
+    <record id="visit_1" model="hr.hospital.visits">
+        <field name="name">Visit 1</field>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="patient_id" ref="patient_1"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_2" model="hr.hospital.visits">
+        <field name="name">Visit 2</field>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="patient_id" ref="patient_2"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_3" model="hr.hospital.visits">
+        <field name="name">Visit 3</field>
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="patient_id" ref="patient_3"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="status">scheduled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_4" model="hr.hospital.visits">
+        <field name="name">Visit 4</field>
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="patient_id" ref="patient_4"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_5" model="hr.hospital.visits">
+        <field name="name">Visit 5</field>
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="patient_id" ref="patient_5"/>
+        <field name="disease_id" ref="disease_derm_psor"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=0)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_6" model="hr.hospital.visits">
+        <field name="name">Visit 6</field>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="patient_id" ref="patient_6"/>
+        <field name="disease_id" ref="disease_cardio_mi"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_7" model="hr.hospital.visits">
+        <field name="name">Visit 7</field>
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="patient_id" ref="patient_7"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_8" model="hr.hospital.visits">
+        <field name="name">Visit 8</field>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="patient_id" ref="patient_8"/>
+        <field name="disease_id" ref="disease_neuro_stroke"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_9" model="hr.hospital.visits">
+        <field name="name">Visit 9</field>
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="patient_id" ref="patient_9"/>
+        <field name="disease_id" ref="disease_resp_pneum"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_10" model="hr.hospital.visits">
+        <field name="name">Visit 10</field>
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="patient_id" ref="patient_10"/>
+        <field name="disease_id" ref="disease_derm_psor"/>
+        <field name="status">no_show</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_11" model="hr.hospital.visits">
+        <field name="name">Visit 11</field>
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="patient_id" ref="patient_11"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_12" model="hr.hospital.visits">
+        <field name="name">Visit 12</field>
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="patient_id" ref="patient_12"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="status">scheduled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_13" model="hr.hospital.visits">
+        <field name="name">Visit 13</field>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="patient_id" ref="patient_13"/>
+        <field name="disease_id" ref="disease_cardio_mi"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_14" model="hr.hospital.visits">
+        <field name="name">Visit 14</field>
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="patient_id" ref="patient_14"/>
+        <field name="disease_id" ref="disease_resp_flu"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_15" model="hr.hospital.visits">
+        <field name="name">Visit 15</field>
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="patient_id" ref="patient_15"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=2)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_16" model="hr.hospital.visits">
+        <field name="name">Visit 16</field>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="patient_id" ref="patient_2"/>
+        <field name="disease_id" ref="disease_neuro_stroke"/>
+        <field name="status">scheduled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_17" model="hr.hospital.visits">
+        <field name="name">Visit 17</field>
+        <field name="doctor_id" ref="doctor_5"/>
+        <field name="patient_id" ref="patient_10"/>
+        <field name="disease_id" ref="disease_derm_psor"/>
+        <field name="status">cancelled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_18" model="hr.hospital.visits">
+        <field name="name">Visit 18</field>
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="patient_id" ref="patient_9"/>
+        <field name="disease_id" ref="disease_resp_flu_comp"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_19" model="hr.hospital.visits">
+        <field name="name">Visit 19</field>
+        <field name="doctor_id" ref="doctor_6"/>
+        <field name="patient_id" ref="patient_4"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="status">scheduled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_20" model="hr.hospital.visits">
+        <field name="name">Visit 20</field>
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="patient_id" ref="patient_6"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=3)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_21" model="hr.hospital.visits">
+        <field name="name">Visit 21</field>
+        <field name="doctor_id" ref="doctor_7"/>
+        <field name="patient_id" ref="patient_7"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_22" model="hr.hospital.visits">
+        <field name="name">Visit 22</field>
+        <field name="doctor_id" ref="doctor_8"/>
+        <field name="patient_id" ref="patient_11"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_23" model="hr.hospital.visits">
+        <field name="name">Visit 23</field>
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="patient_id" ref="patient_15"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="status">scheduled</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_24" model="hr.hospital.visits">
+        <field name="name">Visit 24</field>
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="patient_id" ref="patient_8"/>
+        <field name="disease_id" ref="disease_neuro_stroke"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+    <record id="visit_25" model="hr.hospital.visits">
+        <field name="name">Visit 25</field>
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="patient_id" ref="patient_9"/>
+        <field name="disease_id" ref="disease_resp_pneum"/>
+        <field name="status">completed</field>
+        <field name="plan_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=0, second=0, microsecond=0)"/>
+        <field name="fact_datetime" eval="(datetime.now() - timedelta(days=datetime.now().date().weekday()) + timedelta(days=4)).replace(hour=9, minute=30, second=0, microsecond=0)"/>
+    </record>
+
+    <!--diagnosis-->
+    <record id="diagnosis_1" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_1"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="diagnos_description">Stage 2 hypertension.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_1"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_2" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_2"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="diagnos_description">Chronic migraine.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_2"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_3" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_4"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="diagnos_description">High blood pressure.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_6"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_4" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_5"/>
+        <field name="disease_id" ref="disease_derm_psor"/>
+        <field name="diagnos_description">Psoriasis flare.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_5"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_5" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_6"/>
+        <field name="disease_id" ref="disease_cardio_mi"/>
+        <field name="diagnos_description">Acute myocardial infarction.</field>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_1"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_6" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_7"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="diagnos_description">Asthma exacerbation.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+    <record id="diagnosis_7" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_8"/>
+        <field name="disease_id" ref="disease_neuro_stroke"/>
+        <field name="diagnos_description">Ischemic stroke.</field>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_2"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_8" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_9"/>
+        <field name="disease_id" ref="disease_resp_pneum"/>
+        <field name="diagnos_description">Severe pneumonia.</field>
+        <field name="severity">severe</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_4"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_9" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_11"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="diagnos_description">Recurrent migraines.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+    <record id="diagnosis_10" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_13"/>
+        <field name="disease_id" ref="disease_cardio_mi"/>
+        <field name="diagnos_description">Post infarction care.</field>
+        <field name="severity">severe</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_1"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_11" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_14"/>
+        <field name="disease_id" ref="disease_resp_flu"/>
+        <field name="diagnos_description">Seasonal flu.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">False</field>
+    </record>
+    <record id="diagnosis_12" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_15"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="diagnos_description">Stable asthma.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_3"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_13" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_18"/>
+        <field name="disease_id" ref="disease_resp_flu_comp"/>
+        <field name="diagnos_description">Complicated influenza.</field>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_4"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_14" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_20"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="diagnos_description">Controlled hypertension.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_1"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_15" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_21"/>
+        <field name="disease_id" ref="disease_pedia_asth"/>
+        <field name="diagnos_description">Asthma check.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+    <record id="diagnosis_16" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_22"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="diagnos_description">Migraine with aura.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+    <record id="diagnosis_17" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_24"/>
+        <field name="disease_id" ref="disease_neuro_stroke"/>
+        <field name="diagnos_description">Post-stroke care.</field>
+        <field name="severity">severe</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_2"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_18" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_25"/>
+        <field name="disease_id" ref="disease_resp_pneum"/>
+        <field name="diagnos_description">Pneumonia treatment plan.</field>
+        <field name="severity">severe</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_4"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_19" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_8"/>
+        <field name="disease_id" ref="disease_neuro_mig"/>
+        <field name="diagnos_description">Headache follow-up.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_2"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+    <record id="diagnosis_20" model="hr.hospital.medical.diagnosis">
+        <field name="visit_id" ref="visit_6"/>
+        <field name="disease_id" ref="disease_cardio_htn"/>
+        <field name="diagnos_description">Hypertension monitoring.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_by_doctor_id" ref="doctor_1"/>
+        <field name="approval_date" eval="(datetime.now())"/>
+    </record>
+</odoo>

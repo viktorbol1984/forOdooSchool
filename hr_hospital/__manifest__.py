@@ -22,7 +22,7 @@
         'views/hr_hospital_menu.xml',
 
     ],
-    # 'demo': ['demo/hr_hospital_doctors_demo.xml',],
+    'demo': ['demo/hr_hospital_demo.xml'],
     'installable': True,
     'auto_install': False,
     'images': ['static/description/icon.png'],
