@@ -89,6 +89,10 @@ class HrHospitalVisits(models.Model):
         currency_field='currency_id',
     )
 
+    visit_count = fields.Integer(default=1,
+        readonly=True,
+    )
+
     @api.onchange('doctor_id', 'patient_id', 'plan_datetime')
     def _onchange_plan_datetime_set_doctor_domain(self):
         domain = []

@@ -20,7 +20,10 @@
         <field name="model">hr.hospital.visits</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
+                <header>
+                    <field name="status" widget="statusbar"
+                           options="{'clickable': True}"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -53,11 +56,68 @@
         </field>
     </record>
 
+    <record id="hr_hospital_visits_calendar" model="ir.ui.view">
+        <field name="name">hr.hospital.visits.calendar</field>
+        <field name="model">hr.hospital.visits</field>
+        <field name="arch" type="xml">
+            <calendar date_start="plan_datetime"
+                      create="1" quick_create="1"
+                      mode="month" scales="day,month,year"
+                      create_name_field="description" color="name"
+                      string="Visits">
+                <field name="name"/>
+                <field name="doctor_id"/>
+                <field name="patient_id"/>
+                <field name="status"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="hr_hospital_visits_search" model="ir.ui.view">
+        <field name="name">hr.hospital.visits.search</field>
+        <field name="model">hr.hospital.visits</field>
+        <field name="arch" type="xml">
+            <search string="Visits">
+                <searchpanel>
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/>
+                    <field name="status"/>
+                </searchpanel>
+                <field name="name"/>
+                <filter string="Current Month" name="current_month"
+                        domain="[('plan_datetime','>=', (context_today().replace(day=1))),\n+                                ('plan_datetime','<', (context_today().replace(day=1) + relativedelta(months=1)))]"/>
+                <filter string="Scheduled" name="scheduled"
+                        domain="[('status', '=', 'scheduled')]"/>
+                <filter string="Completed" name="completed"
+                        domain="[('status', '=', 'completed')]"/>
+                <filter string="Cancelled" name="cancelled"
+                        domain="[('status', '=', 'cancelled')]"/>
+                <filter string="No Show" name="no_show"
+                        domain="[('status', '=', 'no_show')]"/>
+                <separator/>
+                <filter string="Group by Status" name="group_by_status"
+                        context="{'group_by': 'status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_hospital_visits_pivot" model="ir.ui.view">
+        <field name="name">hr.hospital.visits.pivot</field>
+        <field name="model">hr.hospital.visits</field>
+        <field name="arch" type="xml">
+            <pivot string="Visits">
+                <field name="doctor_id" type="row"/>
+                <field name="status" type="col"/>
+                <field name="visit_count" type="measure" operator="sum"/>
+            </pivot>
+        </field>
+    </record>
+
     <record id="action_hr_hospital_visits_window" model="ir.actions.act_window">
         <field name="name">Visits</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.hospital.visits</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,calendar,pivot,form</field>
     </record>
     <!-- endregion -->
 
