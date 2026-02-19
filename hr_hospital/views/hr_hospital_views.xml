@@ -342,6 +342,19 @@
         </field>
     </record>
 
+    <record id="hr_hospital_patients_search" model="ir.ui.view">
+        <field name="name">hr.hospital.patients.search</field>
+        <field name="model">hr.hospital.patients</field>
+        <field name="arch" type="xml">
+            <search string="Filter">
+                <searchpanel>
+                </searchpanel>
+                <field name="full_name"/>
+                <field name="phone"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_hr_hospital_patients_window" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="type">ir.actions.act_window</field>
