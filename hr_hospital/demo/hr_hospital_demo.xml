@@ -1133,6 +1133,7 @@
     <!--diagnosis-->
     <record id="diagnosis_1" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_1"/>
+        <field name="patient_id" ref="patient_1"/>
         <field name="disease_id" ref="disease_cardio_htn"/>
         <field name="diagnos_description">Stage 2 hypertension.</field>
         <field name="severity">moderate</field>
@@ -1142,6 +1143,7 @@
     </record>
     <record id="diagnosis_2" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_2"/>
+        <field name="patient_id" ref="patient_2"/>
         <field name="disease_id" ref="disease_neuro_mig"/>
         <field name="diagnos_description">Chronic migraine.</field>
         <field name="severity">moderate</field>
@@ -1151,6 +1153,7 @@
     </record>
     <record id="diagnosis_3" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_4"/>
+        <field name="patient_id" ref="patient_4"/>
         <field name="disease_id" ref="disease_cardio_htn"/>
         <field name="diagnos_description">High blood pressure.</field>
         <field name="severity">mild</field>
@@ -1160,6 +1163,7 @@
     </record>
     <record id="diagnosis_4" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_5"/>
+        <field name="patient_id" ref="patient_5"/>
         <field name="disease_id" ref="disease_derm_psor"/>
         <field name="diagnos_description">Psoriasis flare.</field>
         <field name="severity">moderate</field>
@@ -1169,6 +1173,7 @@
     </record>
     <record id="diagnosis_5" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_6"/>
+        <field name="patient_id" ref="patient_6"/>
         <field name="disease_id" ref="disease_cardio_mi"/>
         <field name="diagnos_description">Acute myocardial infarction.</field>
         <field name="severity">critical</field>
@@ -1178,6 +1183,7 @@
     </record>
     <record id="diagnosis_6" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_7"/>
+        <field name="patient_id" ref="patient_7"/>
         <field name="disease_id" ref="disease_pedia_asth"/>
         <field name="diagnos_description">Asthma exacerbation.</field>
         <field name="severity">moderate</field>
@@ -1185,6 +1191,7 @@
     </record>
     <record id="diagnosis_7" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_8"/>
+        <field name="patient_id" ref="patient_8"/>
         <field name="disease_id" ref="disease_neuro_stroke"/>
         <field name="diagnos_description">Ischemic stroke.</field>
         <field name="severity">critical</field>
@@ -1194,6 +1201,7 @@
     </record>
     <record id="diagnosis_8" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_9"/>
+        <field name="patient_id" ref="patient_9"/>
         <field name="disease_id" ref="disease_resp_pneum"/>
         <field name="diagnos_description">Severe pneumonia.</field>
         <field name="severity">severe</field>
@@ -1203,6 +1211,7 @@
     </record>
     <record id="diagnosis_9" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_11"/>
+        <field name="patient_id" ref="patient_11"/>
         <field name="disease_id" ref="disease_neuro_mig"/>
         <field name="diagnos_description">Recurrent migraines.</field>
         <field name="severity">moderate</field>
@@ -1210,6 +1219,7 @@
     </record>
     <record id="diagnosis_10" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_13"/>
+        <field name="patient_id" ref="patient_13"/>
         <field name="disease_id" ref="disease_cardio_mi"/>
         <field name="diagnos_description">Post infarction care.</field>
         <field name="severity">severe</field>
@@ -1219,6 +1229,7 @@
     </record>
     <record id="diagnosis_11" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_14"/>
+        <field name="patient_id" ref="patient_14"/>
         <field name="disease_id" ref="disease_resp_flu"/>
         <field name="diagnos_description">Seasonal flu.</field>
         <field name="severity">mild</field>
@@ -1226,6 +1237,7 @@
     </record>
     <record id="diagnosis_12" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_15"/>
+        <field name="patient_id" ref="patient_15"/>
         <field name="disease_id" ref="disease_pedia_asth"/>
         <field name="diagnos_description">Stable asthma.</field>
         <field name="severity">mild</field>
@@ -1235,6 +1247,7 @@
     </record>
     <record id="diagnosis_13" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_18"/>
+        <field name="patient_id" ref="patient_18"/>
         <field name="disease_id" ref="disease_resp_flu_comp"/>
         <field name="diagnos_description">Complicated influenza.</field>
         <field name="severity">critical</field>
@@ -1244,6 +1257,7 @@
     </record>
     <record id="diagnosis_14" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_20"/>
+        <field name="patient_id" ref="patient_20"/>
         <field name="disease_id" ref="disease_cardio_htn"/>
         <field name="diagnos_description">Controlled hypertension.</field>
         <field name="severity">mild</field>
@@ -1253,6 +1267,7 @@
     </record>
     <record id="diagnosis_15" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_21"/>
+        <field name="patient_id" ref="patient_21"/>
         <field name="disease_id" ref="disease_pedia_asth"/>
         <field name="diagnos_description">Asthma check.</field>
         <field name="severity">moderate</field>
@@ -1260,6 +1275,7 @@
     </record>
     <record id="diagnosis_16" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_22"/>
+        <field name="patient_id" ref="patient_22"/>
         <field name="disease_id" ref="disease_neuro_mig"/>
         <field name="diagnos_description">Migraine with aura.</field>
         <field name="severity">moderate</field>
@@ -1267,6 +1283,7 @@
     </record>
     <record id="diagnosis_17" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_24"/>
+        <field name="patient_id" ref="patient_24"/>
         <field name="disease_id" ref="disease_neuro_stroke"/>
         <field name="diagnos_description">Post-stroke care.</field>
         <field name="severity">severe</field>
@@ -1276,6 +1293,7 @@
     </record>
     <record id="diagnosis_18" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_25"/>
+        <field name="patient_id" ref="patient_25"/>
         <field name="disease_id" ref="disease_resp_pneum"/>
         <field name="diagnos_description">Pneumonia treatment plan.</field>
         <field name="severity">severe</field>
@@ -1285,6 +1303,7 @@
     </record>
     <record id="diagnosis_19" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_8"/>
+        <field name="patient_id" ref="patient_8"/>
         <field name="disease_id" ref="disease_neuro_mig"/>
         <field name="diagnos_description">Headache follow-up.</field>
         <field name="severity">mild</field>
@@ -1294,6 +1313,7 @@
     </record>
     <record id="diagnosis_20" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_6"/>
+        <field name="patient_id" ref="patient_6"/>
         <field name="disease_id" ref="disease_cardio_htn"/>
         <field name="diagnos_description">Hypertension monitoring.</field>
         <field name="severity">moderate</field>

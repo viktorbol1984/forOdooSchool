@@ -15,6 +15,14 @@ class MedicalDiagnosis(models.Model):
         ],
     )
 
+    patient_id = fields.Many2one(
+        comodel_name='hr.hospital.patients',
+        related='visit_id.patient_id',
+        store=True,
+        readonly=True,
+        index=True,
+    )
+
     disease_id = fields.Many2one(
         comodel_name='hr.hospital.diseases',
         string='Disease',

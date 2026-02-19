@@ -37,6 +37,12 @@ class Patients(models.Model):
         inverse_name='patient_id',
         string='Doctors History'
     )
+
+    diagnosis_history_ids = fields.One2many(
+        comodel_name='hr.hospital.medical.diagnosis',
+        inverse_name='patient_id',
+        string='Diagnosis History'
+    )
     active = fields.Boolean(
         default=True
     )
