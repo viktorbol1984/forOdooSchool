@@ -29,6 +29,11 @@ class MedicalDiagnosis(models.Model):
         domain=[('severity', 'in', ['high', 'critical'])],
     )
 
+    diagnosis_count = fields.Integer(
+        default=1,
+        readonly=True,
+    )
+
     diagnos_description = fields.Text(
         string='Diagnos'
     )
