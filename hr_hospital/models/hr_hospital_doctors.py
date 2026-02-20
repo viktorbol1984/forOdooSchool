@@ -30,6 +30,10 @@ class Doctors(models.Model):
         string='Mentor',
         domain=[('is_intern', '=', False)]
     )
+    mentor_group_label = fields.Char(
+        compute='_compute_mentor_group_label',
+        store=True,
+    )
 
     license_number = fields.Char(
         required=True,
@@ -111,3 +115,15 @@ class Doctors(models.Model):
             if record.speciality_id and record.speciality_id.name:
                 name = f"{name} ({record.speciality_id.name})"
             record.display_name = name
+
+    @api.depends('mentor_doctor_id', 'mentor_doctor_id.full_name')
+    def _compute_mentor_group_label(self):
+        for record in self:
+            if record.mentor_doctor_id:
+                record.mentor_group_label = (
+                    record.mentor_doctor_id.full_name
+                    or record.mentor_doctor_id.name
+                    or 'Mentors'
+                )
+            else:
+                record.mentor_group_label = 'Mentors'
