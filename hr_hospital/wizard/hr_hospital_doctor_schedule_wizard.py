@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 from datetime import timedelta
 from odoo import models, fields
 

@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 {
     'name': 'HR Hospital',
     'author': 'Viktor Bol',

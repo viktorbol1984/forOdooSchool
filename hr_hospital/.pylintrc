@@ -1,0 +1,5 @@
+[MASTER]
+load-plugins=pylint_odoo
+
+[ODOO]
+valid_odoo_versions=16.0

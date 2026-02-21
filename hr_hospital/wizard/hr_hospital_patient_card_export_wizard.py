@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 import base64
 import csv
 import io

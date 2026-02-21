@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 from odoo import models, fields, api
 
 

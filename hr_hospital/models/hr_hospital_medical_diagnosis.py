@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 from dateutil.relativedelta import relativedelta
 
 from odoo import models, fields, api

@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 from odoo import models, fields
 
 
@@ -17,12 +19,10 @@ class HrHospitalDiseaseReportWizard(models.TransientModel):
         comodel_name='res.country',
         string='Countries',
     )
-    date_start = fields.Date(
-        string='Date Start',
-    )
-    date_end = fields.Date(
-        string='Date End',
-    )
+    date_start = fields.Date()
+
+    date_end = fields.Date()
+
     report_type = fields.Selection(
         selection=[
             ('short', 'Short'),
@@ -39,7 +39,6 @@ class HrHospitalDiseaseReportWizard(models.TransientModel):
             ('month', 'Month'),
             ('country', 'Country'),
         ],
-        string='Group By',
         required=True,
     )
 

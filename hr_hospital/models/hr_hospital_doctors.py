@@ -1,3 +1,5 @@
+"""HR Hospital module."""
+
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -39,11 +41,6 @@ class Doctors(models.Model):
         required=True,
         copy=False
     )
-    # old fashioned way didn't work
-    _license_number_unique = models.Constraint(
-        'unique (license_number)',
-        'License number must be unique!'
-    )
 
     license_issue_date = fields.Date()
 
@@ -67,6 +64,12 @@ class Doctors(models.Model):
     )
 
     description = fields.Text()
+
+    # old fashioned way didn't work
+    _license_number_unique = models.Constraint(
+        'unique (license_number)',
+        'License number must be unique!'
+    )
 
     @api.depends('license_issue_date')
     def _compute_years_of_experience(self):
