@@ -1247,7 +1247,7 @@
     </record>
     <record id="diagnosis_13" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_18"/>
-        <field name="patient_id" ref="patient_18"/>
+        <field name="patient_id" ref="patient_9"/>
         <field name="disease_id" ref="disease_resp_flu_comp"/>
         <field name="diagnos_description">Complicated influenza.</field>
         <field name="severity">critical</field>
@@ -1257,7 +1257,7 @@
     </record>
     <record id="diagnosis_14" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_20"/>
-        <field name="patient_id" ref="patient_20"/>
+        <field name="patient_id" ref="patient_6"/>
         <field name="disease_id" ref="disease_cardio_htn"/>
         <field name="diagnos_description">Controlled hypertension.</field>
         <field name="severity">mild</field>
@@ -1267,7 +1267,7 @@
     </record>
     <record id="diagnosis_15" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_21"/>
-        <field name="patient_id" ref="patient_21"/>
+        <field name="patient_id" ref="patient_7"/>
         <field name="disease_id" ref="disease_pedia_asth"/>
         <field name="diagnos_description">Asthma check.</field>
         <field name="severity">moderate</field>
@@ -1275,7 +1275,7 @@
     </record>
     <record id="diagnosis_16" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_22"/>
-        <field name="patient_id" ref="patient_22"/>
+        <field name="patient_id" ref="patient_11"/>
         <field name="disease_id" ref="disease_neuro_mig"/>
         <field name="diagnos_description">Migraine with aura.</field>
         <field name="severity">moderate</field>
@@ -1283,7 +1283,7 @@
     </record>
     <record id="diagnosis_17" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_24"/>
-        <field name="patient_id" ref="patient_24"/>
+        <field name="patient_id" ref="patient_8"/>
         <field name="disease_id" ref="disease_neuro_stroke"/>
         <field name="diagnos_description">Post-stroke care.</field>
         <field name="severity">severe</field>
@@ -1293,7 +1293,7 @@
     </record>
     <record id="diagnosis_18" model="hr.hospital.medical.diagnosis">
         <field name="visit_id" ref="visit_25"/>
-        <field name="patient_id" ref="patient_25"/>
+        <field name="patient_id" ref="patient_9"/>
         <field name="disease_id" ref="disease_resp_pneum"/>
         <field name="diagnos_description">Pneumonia treatment plan.</field>
         <field name="severity">severe</field>

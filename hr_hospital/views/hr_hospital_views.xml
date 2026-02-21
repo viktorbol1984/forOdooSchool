@@ -204,10 +204,27 @@
             <list>
                 <field name="name"/>
                 <field name="full_name"/>
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="patronymic"/>
                 <field name="gender"/>
+                <field name="birth_date"/>
                 <field name="age"/>
+                <field name="active"/>
+                <field name="user_id"/>
+                <field name="speciality_id"/>
+                <field name="is_intern"/>
+                <field name="mentor_doctor_id"/>
+                <field name="license_number"/>
+                <field name="license_issue_date"/>
+                <field name="years_of_experience"/>
+                <field name="rating"/>
                 <field name="phone" widget="phone"/>
                 <field name="email" widget="email"/>
+                <field name="country_id"/>
+                <field name="lang_id"/>
+                <field name="education_country_id"/>
+                <field name="schedule_ids"/>
                 <field name="description"/>
             </list>
         </field>
