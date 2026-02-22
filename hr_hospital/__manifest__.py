@@ -1,4 +1,4 @@
-"""HR Hospital module."""
+
 
 {
     'name': 'HR Hospital',
