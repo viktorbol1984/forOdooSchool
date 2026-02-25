@@ -1,5 +1,3 @@
-"""HR Hospital module."""
-
 {
     'name': 'HR Hospital',
     'author': 'Viktor Bol',
@@ -12,6 +10,8 @@
     },
     'data': [
         'security/ir.model.access.csv',
+
+        'report/doctor_report_templates.xml',
 
         'wizard/hr_hospital_mass_reassign_doctor_wizard_view.xml',
         'wizard/hr_hospital_doctor_schedule_wizard_view.xml',

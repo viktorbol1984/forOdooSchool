@@ -30,42 +30,42 @@
     <!--speciality-->
     <record id="user_doc_1" model="res.users">
         <field name="name">Dr. John Carter</field>
-        <field name="login">doctor1</field>
+        <field name="login">demo_doctor1</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_2" model="res.users">
         <field name="name">Dr. Sofia Novak</field>
-        <field name="login">doctor2</field>
+        <field name="login">demo_doctor2</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_3" model="res.users">
         <field name="name">Dr. Liam Wright</field>
-        <field name="login">doctor3</field>
+        <field name="login">demo_doctor3</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_4" model="res.users">
         <field name="name">Dr. Emma Klein</field>
-        <field name="login">doctor4</field>
+        <field name="login">demo_doctor4</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_5" model="res.users">
         <field name="name">Dr. Mateo Cruz</field>
-        <field name="login">doctor5</field>
+        <field name="login">demo_doctor5</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_6" model="res.users">
         <field name="name">Dr. Hana Volkov</field>
-        <field name="login">doctor6</field>
+        <field name="login">demo_doctor6</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_7" model="res.users">
         <field name="name">Dr. Intern Alex</field>
-        <field name="login">doctor7</field>
+        <field name="login">demo_doctor7</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
     <record id="user_doc_8" model="res.users">
         <field name="name">Dr. Intern Yulia</field>
-        <field name="login">doctor8</field>
+        <field name="login">demo_doctor8</field>
         <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
@@ -77,7 +77,7 @@
         <field name="gender">male</field>
         <field name="user_id" ref="user_doc_1"/>
         <field name="speciality_id" ref="spec_cardio"/>
-        <field name="license_number">LIC-1001</field>
+        <field name="license_number">DEMO-LIC-1001</field>
         <field name="country_id" ref="base.us"/>
         <field name="lang_id" ref="base.lang_en"/>
         <field name="education_country_id" ref="base.us"/>
@@ -90,7 +90,7 @@
         <field name="gender">female</field>
         <field name="user_id" ref="user_doc_2"/>
         <field name="speciality_id" ref="spec_neuro"/>
-        <field name="license_number">LIC-1002</field>
+        <field name="license_number">DEMO-LIC-1002</field>
         <field name="country_id" ref="base.ua"/>
         <field name="lang_id" ref="base.lang_uk_UA"/>
         <field name="education_country_id" ref="base.de"/>
@@ -103,7 +103,7 @@
         <field name="gender">male</field>
         <field name="user_id" ref="user_doc_3"/>
         <field name="speciality_id" ref="spec_pedia"/>
-        <field name="license_number">LIC-1003</field>
+        <field name="license_number">DEMO-LIC-1003</field>
         <field name="country_id" ref="base.uk"/>
         <field name="lang_id" ref="base.lang_en"/>
         <field name="education_country_id" ref="base.uk"/>
@@ -116,7 +116,7 @@
         <field name="gender">female</field>
         <field name="user_id" ref="user_doc_4"/>
         <field name="speciality_id" ref="spec_surg"/>
-        <field name="license_number">LIC-1004</field>
+        <field name="license_number">DEMO-LIC-1004</field>
         <field name="country_id" ref="base.de"/>
         <field name="lang_id" ref="base.lang_de"/>
         <field name="education_country_id" ref="base.de"/>
@@ -129,7 +129,7 @@
         <field name="gender">male</field>
         <field name="user_id" ref="user_doc_5"/>
         <field name="speciality_id" ref="spec_derm"/>
-        <field name="license_number">LIC-1005</field>
+        <field name="license_number">DEMO-LIC-1005</field>
         <field name="country_id" ref="base.es"/>
         <field name="lang_id" ref="base.lang_es"/>
         <field name="education_country_id" ref="base.es"/>
@@ -142,7 +142,7 @@
         <field name="gender">female</field>
         <field name="user_id" ref="user_doc_6"/>
         <field name="speciality_id" ref="spec_cardio"/>
-        <field name="license_number">LIC-1006</field>
+        <field name="license_number">DEMO-LIC-1006</field>
         <field name="country_id" ref="base.pl"/>
         <field name="lang_id" ref="base.lang_pl"/>
         <field name="education_country_id" ref="base.de"/>
@@ -155,7 +155,7 @@
         <field name="gender">male</field>
         <field name="user_id" ref="user_doc_7"/>
         <field name="speciality_id" ref="spec_pedia"/>
-        <field name="license_number">LIC-1007</field>
+        <field name="license_number">DEMO-LIC-1007</field>
         <field name="country_id" ref="base.ua"/>
         <field name="lang_id" ref="base.lang_uk_UA"/>
         <field name="education_country_id" ref="base.ua"/>
@@ -169,7 +169,7 @@
         <field name="gender">female</field>
         <field name="user_id" ref="user_doc_8"/>
         <field name="speciality_id" ref="spec_neuro"/>
-        <field name="license_number">LIC-1008</field>
+        <field name="license_number">DEMO-LIC-1008</field>
         <field name="country_id" ref="base.pl"/>
         <field name="lang_id" ref="base.lang_pl"/>
         <field name="education_country_id" ref="base.ua"/>

@@ -1,0 +1,91 @@
+<odoo>
+    <record id="action_report_doctor" model="ir.actions.report">
+        <field name="name">Doctor Report</field>
+        <field name="model">hr.hospital.doctors</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hr_hospital.report_doctor</field>
+        <field name="report_file">hr_hospital.report_doctor</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+        <field name="print_report_name">'Report - %s' % (object.full_name or object.name or 'Doctor')</field>
+        <field name="binding_model_id" ref="model_hr_hospital_doctors"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_doctor">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+
+                    <h1 t-out="doc.full_name + ', ' + doc.speciality_id.name"/>
+
+                    <h>Visit History</h>
+                    <t t-set="visits" t-value="report_data.get(doc.id, {}).get('visit_history', [])"/>
+                    <ul>
+                        <t t-foreach="visits" t-as="visit">
+                            <li>
+                                <strong t-field="visit.plan_datetime" t-options='{"widget": "datetime"}'/>
+                                —
+                                <span t-field="visit.patient_id.full_name"/>
+                                (
+                                <t t-if="visit.status == 'scheduled'">Scheduled</t>
+                                <t t-elif="visit.status == 'completed'">Completed</t>
+                                <t t-elif="visit.status == 'cancelled'">Cancelled</t>
+                                <t t-else="">No Show</t>)
+                            </li>
+                        </t>
+                    </ul>
+
+                    <h>Doctor's Patients</h>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Gender</th>
+                                <th>Date of Birth</th>
+                                <th>Phone</th>
+                                <th>Current Visit Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="patients_data"
+                               t-value="report_data.get(doc.id, {}).get('patients_with_status', [])"/>
+                            <t t-foreach="patients_data" t-as="row">
+                                <tr>
+                                    <td>
+                                        <span t-field="row[0].full_name"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="row[0].gender == 'male'">Male</t>
+                                        <t t-elif="row[0].gender == 'female'">Female</t>
+                                        <t t-else="">—</t>
+                                    </td>
+                                    <td>
+                                        <span t-field="row[0].birth_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="row[0].phone"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="status" t-value="row[1]"/>
+                                        <span t-if="status == 'scheduled'">Scheduled</span>
+                                        <span t-elif="status == 'completed'">Completed</span>
+                                        <span t-elif="status == 'cancelled'">Cancelled</span>
+                                        <span t-else="">No Show</span>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <p></p>
+                        <hr/>
+                        <span t-esc="res_company.partner_id.city"/>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y %H:%M:%S')"/>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
