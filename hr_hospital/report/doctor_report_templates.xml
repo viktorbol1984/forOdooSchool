@@ -2,7 +2,7 @@
     <record id="action_report_doctor" model="ir.actions.report">
         <field name="name">Doctor Report</field>
         <field name="model">hr.hospital.doctors</field>
-        <field name="report_type">qweb-html</field>
+        <field name="report_type">qweb-pdf</field>
         <field name="report_name">hr_hospital.report_doctor</field>
         <field name="report_file">hr_hospital.report_doctor</field>
         <field name="paperformat_id" ref="base.paperformat_euro"/>
