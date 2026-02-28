@@ -9,6 +9,8 @@
         'python': [],
     },
     'data': [
+        'security/hr_hospital_groups.xml',
+        'security/hr_hospital_access_groups.xml',
         'security/ir.model.access.csv',
 
         'report/doctor_report_templates.xml',
