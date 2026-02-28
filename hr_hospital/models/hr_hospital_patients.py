@@ -15,6 +15,11 @@ class Patients(models.Model):
 
     contact = fields.Many2one('hr.hospital.contact.person')
 
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='User',
+    )
+
     bloodGroup = fields.Selection(
         selection=[
             ('o_positive', 'O(I) Rh+'),

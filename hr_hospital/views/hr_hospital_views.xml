@@ -351,6 +351,7 @@
                 <field name="gender"/>
                 <field name="age"/>
                 <field name="primaryDoctor_id"/>
+                <field name="user_id"/>
                 <field name="phone" widget="phone"/>
                 <field name="email" widget="email"/>
                 <field name="description"/>
@@ -389,6 +390,7 @@
                             <field name="birth_date"/>
                             <field name="age"/>
                             <field name="primaryDoctor_id"/>
+                            <field name="user_id"/>
                             <field name="phone" widget="phone"/>
                             <field name="email" widget="email"/>
                             <field name="country_id"/>
