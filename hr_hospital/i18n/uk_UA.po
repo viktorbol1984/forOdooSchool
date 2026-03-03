@@ -65,3 +65,33 @@ msgstr "Графік лікаря"
 #: model:ir.ui.menu,name:hr_hospital.hr_hospital_menu_reschedule_visit_wizard
 msgid "Reschedule Visit"
 msgstr "Перенести візит"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,name:hr_hospital.disease_flu
+msgid "Flu"
+msgstr "Грип"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,description:hr_hospital.disease_flu
+msgid "Flu"
+msgstr "Грип"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,name:hr_hospital.disease_covid
+msgid "COVID"
+msgstr "COVID"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,description:hr_hospital.disease_covid
+msgid "Coronavirus"
+msgstr "Коронавірус"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,name:hr_hospital.disease_smallpox
+msgid "Smallpox"
+msgstr "Віспа"
+
+#. module: hr_hospital
+#: model:hr.hospital.diseases,description:hr_hospital.disease_smallpox
+msgid "Smallpox"
+msgstr "Віспа"

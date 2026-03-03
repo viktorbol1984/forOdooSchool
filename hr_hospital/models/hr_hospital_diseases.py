@@ -10,13 +10,15 @@ class Diseases(models.Model):
     _parent_store = True
     parent_path = fields.Char(index=True)
 
-    name = fields.Char()
+    name = fields.Char(
+        translate=True,
+    )
 
     active = fields.Boolean(
         default=True
     )
 
-    description = fields.Text()
+    description = fields.Text(translate=True,)
 
     parent_id = fields.Many2one(
         'hr.hospital.diseases',
@@ -45,7 +47,7 @@ class Diseases(models.Model):
 
     is_contagious = fields.Boolean()
 
-    symptoms = fields.Text()
+    symptoms = fields.Text(translate=True,)
 
     affected_country_ids = fields.Many2many(
         'res.country',
