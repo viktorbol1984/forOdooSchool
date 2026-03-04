@@ -5,6 +5,8 @@ from odoo.exceptions import ValidationError, UserError
 
 
 class HrHospitalVisits(models.Model):
+    """Patient visit lifecycle with scheduling and consistency checks."""
+
     _name = 'hr.hospital.visits'
     _description = 'Hospital Visits'
 
@@ -97,6 +99,7 @@ class HrHospitalVisits(models.Model):
 
     @api.onchange('doctor_id', 'patient_id', 'plan_datetime')
     def _onchange_plan_datetime_set_doctor_domain(self):
+        """Suggest doctor domain from patient profile and doctor schedule."""
         domain = []
         schedule_domain = []
         if self.plan_datetime:
@@ -121,6 +124,7 @@ class HrHospitalVisits(models.Model):
         return {'domain': {'doctor_id': domain}}
 
     def write(self, vals):
+        """Protect completed visits from doctor or plan date changes."""
         for rec in self:
             if rec.fact_datetime:
                 if 'doctor_id' in vals or 'plan_datetime' in vals:
@@ -130,6 +134,7 @@ class HrHospitalVisits(models.Model):
         return super().write(vals)
 
     def unlink(self):
+        """Prevent deleting visits that already contain diagnoses."""
         for record in self:
             if record.diagnosis_ids:
                 raise UserError('Cannot delete visit with diagnoses!')
@@ -137,11 +142,13 @@ class HrHospitalVisits(models.Model):
 
     @api.depends('diagnosis_ids')
     def _compute_diagnoses_count(self):
+        """Compute number of diagnoses linked to each visit."""
         for record in self:
             record.diagnoses_count = len(record.diagnosis_ids)
 
     @api.onchange('patient_id')
     def _onchange_patient_id(self):
+        """Warn user if selected patient has known allergies."""
         if self.patient_id and self.patient_id.allergies:
             return {
                 'warning': {
@@ -152,6 +159,7 @@ class HrHospitalVisits(models.Model):
 
     @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
     def _check_up_visit(self):
+        """Validate duplicate same-day visits and assignment history."""
         for record in self:
             if record.doctor_id and record.patient_id and record.plan_datetime:
                 visit_date = record.plan_datetime.date()
@@ -198,6 +206,7 @@ class HrHospitalVisits(models.Model):
 
     @api.constrains('doctor_id', 'patient_id', 'plan_datetime')
     def _check_doctor_availability_and_match(self):
+        """Validate schedule availability and doctor-patient compatibility."""
         for record in self:
             if record.doctor_id and record.plan_datetime:
                 plan_date = fields.Date.to_date(record.plan_datetime)
@@ -232,6 +241,7 @@ class HrHospitalVisits(models.Model):
 
     @api.depends('doctor_id', 'doctor_id.is_intern', 'doctor_id.mentor_doctor_id')
     def _compute_mentor_doctor_id(self):
+        """Set mentor doctor for visits handled by intern doctors."""
         for record in self:
             if record.doctor_id and record.doctor_id.is_intern:
                 record.mentor_doctor_id = record.doctor_id.mentor_doctor_id

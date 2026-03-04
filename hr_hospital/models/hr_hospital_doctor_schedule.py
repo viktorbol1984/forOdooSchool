@@ -4,6 +4,8 @@ from odoo import models, fields
 
 
 class DoctorSchedule(models.Model):
+    """Doctor calendar entries for working and non-working periods."""
+
     _name = 'hr.hospital.doctor.schedule'
     _description = 'Doctor Schedule'
 

@@ -4,6 +4,8 @@ from odoo import models, fields
 
 
 class Diseases(models.Model):
+    """Catalog of diseases with hierarchy, severity, and localization data."""
+
     _name = 'hr.hospital.diseases'
     _description = 'Diseases'
     _parent_name = 'parent_id'

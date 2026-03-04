@@ -6,6 +6,8 @@ import re
 
 
 class AbstractPerson(models.AbstractModel):
+    """Shared person fields and validations for hospital entities."""
+
     _name = 'hr.hospital.abstract.person'
     _description = 'Abstract Person Model'
     _inherit = ['image.mixin']
@@ -51,6 +53,7 @@ class AbstractPerson(models.AbstractModel):
 
     @api.depends('birth_date')
     def _compute_age(self):
+        """Compute age in years based on birth date."""
         today = fields.Date.today()
         for record in self:
             if record.birth_date:
@@ -62,12 +65,14 @@ class AbstractPerson(models.AbstractModel):
 
     @api.depends('last_name', 'first_name', 'patronymic')
     def _compute_full_name(self):
+        """Build full name from available name parts."""
         for rec in self:
             parts = [rec.last_name, rec.first_name, rec.patronymic]
             rec.full_name = " ".join(p for p in parts if p)
 
     @api.constrains('phone')
     def _check_phone(self):
+        """Validate phone number format with a permissive pattern."""
         pattern = re.compile(r'^\+?[0-9\s\-()]{7,20}$')
         for rec in self:
             if rec.phone and not pattern.match(rec.phone):
@@ -75,6 +80,7 @@ class AbstractPerson(models.AbstractModel):
 
     @api.constrains('email')
     def _check_email(self):
+        """Validate email format."""
         pattern = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
         for rec in self:
             if rec.email and not pattern.match(rec.email):
@@ -82,6 +88,7 @@ class AbstractPerson(models.AbstractModel):
 
     @api.onchange('country_id')
     def _onchange_country_id(self):
+        """Auto-select language by country code when possible."""
         if not self.country_id or not self.country_id.code:
             return
         lang = self.env['res.lang'].search([

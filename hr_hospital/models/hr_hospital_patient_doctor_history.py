@@ -4,6 +4,8 @@ from odoo import models, fields, api
 
 
 class PatientDoctorHistory(models.Model):
+    """History of doctor assignments for each patient."""
+
     _name = 'hr.hospital.patient.doctor.history'
     _description = 'Patient Doctor History'
 
@@ -36,6 +38,7 @@ class PatientDoctorHistory(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Deactivate previous active assignment rows for the same patients."""
         patient_ids = {vals.get('patient_id') for vals in vals_list if vals.get('patient_id')}
         if patient_ids:
             self.search([

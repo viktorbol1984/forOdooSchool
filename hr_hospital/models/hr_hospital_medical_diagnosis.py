@@ -6,6 +6,8 @@ from odoo import models, fields, api
 
 
 class MedicalDiagnosis(models.Model):
+    """Diagnosis records linked to visits, including approval metadata."""
+
     _name = 'hr.hospital.medical.diagnosis'
     _description = 'Medical Diagnosis'
 
@@ -74,6 +76,7 @@ class MedicalDiagnosis(models.Model):
     )
 
     def _get_current_doctor(self):
+        """Return doctor record mapped to the current user."""
         return self.env['hr.hospital.doctors'].search(
             [('user_id', '=', self.env.user.id)],
             limit=1
@@ -81,6 +84,7 @@ class MedicalDiagnosis(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Populate approval metadata when record is created as approved."""
         doctor = self._get_current_doctor()
         now = fields.Datetime.now()
         for vals in vals_list:
@@ -91,6 +95,7 @@ class MedicalDiagnosis(models.Model):
         return super().create(vals_list)
 
     def write(self, vals):
+        """Maintain approval metadata when approval-related fields change."""
         doctor = self._get_current_doctor()
         now = fields.Datetime.now()
         for rec in self:

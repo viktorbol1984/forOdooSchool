@@ -5,6 +5,8 @@ from odoo.exceptions import ValidationError
 
 
 class Patients(models.Model):
+    """Patient profiles with medical and assignment-related information."""
+
     _name = 'hr.hospital.patients'
     _description = 'Patients'
     _inherit = ['hr.hospital.abstract.person']
@@ -59,6 +61,7 @@ class Patients(models.Model):
     description = fields.Text()
 
     def write(self, vals):
+        """Track primary doctor changes in patient-doctor history."""
         for rec in self:
             if 'primaryDoctor_id' in vals:
                 new_doctor_id = vals.get('primaryDoctor_id')
@@ -77,6 +80,7 @@ class Patients(models.Model):
 
     @api.constrains('birth_date')
     def _check_up_patient(self):
+        """Require birth date and ensure patient age is at least one year."""
         for record in self:
             if record.birth_date:
                 today = fields.Date.today()

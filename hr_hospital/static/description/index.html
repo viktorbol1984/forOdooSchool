@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Hospital</title>
+</head>
+<body>
+<section style="max-width: 960px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.5; color: #222;">
+    <div style="display: flex; align-items: center; gap: 16px; margin: 24px 0;">
+        <img src="icon.png" alt="HR Hospital Icon" style="width: 72px; height: 72px; border-radius: 12px;">
+        <div>
+            <h1 style="margin: 0; font-size: 28px;">HR Hospital</h1>
+            <p style="margin: 6px 0 0 0; color: #555;">Hospital workflow management for Odoo 19</p>
+        </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+        <strong>HR Hospital</strong> is a custom module that helps manage doctors, patients, visits,
+        diseases, and diagnoses in a single workflow.
+    </p>
+
+    <h2>Main Features</h2>
+    <ul>
+        <li>Doctors and specialities management</li>
+        <li>Doctor schedules and visit availability checks</li>
+        <li>Patient cards and patient-doctor assignment history</li>
+        <li>Visits with domain and validation rules</li>
+        <li>Medical diagnoses and approval metadata</li>
+        <li>Diseases catalog with hierarchy and affected regions</li>
+        <li>Operational wizards and reporting tools</li>
+    </ul>
+
+    <h2>Business Rules</h2>
+    <ul>
+        <li>Doctor rating must be between 0.00 and 5.00</li>
+        <li>Doctor cannot be archived if active visits exist</li>
+        <li>Duplicate same-day visit for same doctor and patient is forbidden</li>
+        <li>Visit creation requires prior patient-doctor assignment</li>
+        <li>Visit with diagnoses cannot be deleted</li>
+    </ul>
+
+    <h2>Wizards</h2>
+    <ul>
+        <li>Mass doctor reassignment</li>
+        <li>Disease report wizard</li>
+        <li>Diagnosis report wizard</li>
+        <li>Reschedule visit wizard</li>
+        <li>Doctor schedule wizard</li>
+        <li>Patient card export wizard</li>
+    </ul>
+
+    <h2>Data & Translations</h2>
+    <p>
+        The module includes disease master data and supports translated values for translatable fields via
+        <code>i18n/*.po</code>.
+    </p>
+
+    <h2>Tests</h2>
+    <p>
+        Automated tests are included for doctors, visits, and diseases models.
+    </p>
+</section>
+</body>
+</html>
+

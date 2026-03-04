@@ -4,6 +4,8 @@ from odoo import models, fields
 
 
 class DoctorSpeciality(models.Model):
+    """Speciality directory used to classify doctors."""
+
     _name = 'hr.hospital.doctor.speciality'
     _description = 'Doctor Speciality'
 

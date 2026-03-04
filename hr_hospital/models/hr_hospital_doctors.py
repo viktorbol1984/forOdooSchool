@@ -5,6 +5,8 @@ from odoo.exceptions import ValidationError
 
 
 class Doctors(models.Model):
+    """Doctor master data, validations, and computed presentation fields."""
+
     _name = 'hr.hospital.doctors'
     _description = 'Doctors'
     _inherit = ['hr.hospital.abstract.person']
@@ -73,6 +75,7 @@ class Doctors(models.Model):
 
     @api.depends('license_issue_date')
     def _compute_years_of_experience(self):
+        """Estimate years of experience from license issue date."""
         today = fields.Date.today()
         for record in self:
             if record.license_issue_date:
@@ -83,6 +86,7 @@ class Doctors(models.Model):
 
     @api.constrains('active')
     def _check_visits(self):
+        """Prevent archiving doctors that still have active visits."""
         for record in self:
             if not record.active:
                 active_visits = self.env['hr.hospital.visits'].search([
@@ -94,17 +98,20 @@ class Doctors(models.Model):
 
     @api.constrains('rating')
     def _check_rating(self):
+        """Validate doctor rating range."""
         for record in self:
             if record.rating and (record.rating < 0.0 or record.rating > 5.0):
                 raise ValidationError('Rating must be between 0.00 and 5.00')
 
     @api.onchange('is_intern')
     def _onchange_is_intern(self):
+        """Clear mentor when doctor is no longer an intern."""
         if not self.is_intern:
             self.mentor_doctor_id = False
 
     @api.constrains('is_intern', 'mentor_doctor_id')
     def _check_mentor_only_for_interns(self):
+        """Ensure mentor relation is valid and never self-referential."""
         for record in self:
             if not record.is_intern and record.mentor_doctor_id:
                 raise ValidationError('Only interns can have a mentor doctor!')
@@ -113,6 +120,7 @@ class Doctors(models.Model):
 
     @api.depends('name', 'speciality_id', 'speciality_id.name')
     def _compute_display_name(self):
+        """Compose display name with speciality suffix."""
         for record in self:
             name = record.name or ''
             if record.speciality_id and record.speciality_id.name:
@@ -121,6 +129,7 @@ class Doctors(models.Model):
 
     @api.depends('mentor_doctor_id', 'mentor_doctor_id.full_name')
     def _compute_mentor_group_label(self):
+        """Compute grouping label for mentor-based views."""
         for record in self:
             if record.mentor_doctor_id:
                 record.mentor_group_label = (
