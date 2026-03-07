@@ -95,3 +95,23 @@ msgstr "Віспа"
 #: model:hr.hospital.diseases,description:hr_hospital.disease_smallpox
 msgid "Smallpox"
 msgstr "Віспа"
+
+#. module: hr_hospital
+#: selection:hr.hospital.diseases,severity:0
+msgid "Low"
+msgstr "Низька"
+
+#. module: hr_hospital
+#: selection:hr.hospital.diseases,severity:0
+msgid "Medium"
+msgstr "Середня"
+
+#. module: hr_hospital
+#: selection:hr.hospital.diseases,severity:0
+msgid "High"
+msgstr "Висока"
+
+#. module: hr_hospital
+#: selection:hr.hospital.diseases,severity:0
+msgid "Critical"
+msgstr "Критична"
