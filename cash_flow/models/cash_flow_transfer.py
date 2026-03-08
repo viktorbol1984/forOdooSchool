@@ -7,7 +7,7 @@ class CashFlowTransfer(models.Model):
     _description = "Cashbox Transfer"
     _order = "date desc, id desc"
 
-    name = fields.Char(required=True, default="New", copy=False)
+    name = fields.Char(required=True, default="Transfer №0", copy=False, readonly=True)
     date = fields.Date(required=True, default=fields.Date.today)
     source_cashbox_id = fields.Many2one(
         "cash.flow.cashbox",
@@ -50,17 +50,12 @@ class CashFlowTransfer(models.Model):
         ondelete="set null",
     )
 
-    _name_unique = models.Constraint(
-        "unique (name)",
-        "Transfer number must be unique.",
-    )
-
     @api.model_create_multi
     def create(self, vals_list):
-        for vals in vals_list:
-            if vals.get("name", "New") == "New":
-                vals["name"] = self.env["ir.sequence"].next_by_code("cash.flow.transfer") or "New"
-        return super().create(vals_list)
+        records = super().create(vals_list)
+        for rec in records:
+            rec.name = f"Transfer №{rec.id}"
+        return records
 
     @api.constrains("source_cashbox_id", "destination_cashbox_id")
     def _check_cashboxes_are_different(self):

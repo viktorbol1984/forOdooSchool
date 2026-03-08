@@ -5,9 +5,9 @@
     "category": "Accounting",
     "author": "viktorbol1984",
     "license": "LGPL-3",
+    "images": ["static/description/icon.png"],
     "depends": ["base", "base_address_extended"],
     "data": [
-        "data/cash_flow_sequence.xml",
         "security/ir.model.access.csv",
         "views/cash_flow_views.xml",
         "views/res_partner_views.xml",
