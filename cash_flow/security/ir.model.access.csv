@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cash_flow_cashbox_user,access_cash_flow_cashbox_user,model_cash_flow_cashbox,base.group_user,1,1,1,1
+access_cash_flow_transaction_user,access_cash_flow_transaction_user,model_cash_flow_transaction,base.group_user,1,1,1,1
+access_cash_flow_dds_article_user,access_cash_flow_dds_article_user,model_cash_flow_dds_article,base.group_user,1,1,1,1
+access_cash_flow_dds_category_user,access_cash_flow_dds_category_user,model_cash_flow_dds_category,base.group_user,1,1,1,1
+access_cash_flow_transfer_user,access_cash_flow_transfer_user,model_cash_flow_transfer,base.group_user,1,1,1,1
