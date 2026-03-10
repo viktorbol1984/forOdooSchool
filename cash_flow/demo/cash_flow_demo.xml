@@ -1,0 +1,424 @@
+<odoo>
+    <data>
+        <!-- DDS Categories -->
+        <record id="dds_cat_materials" model="cash.flow.dds.category">
+            <field name="name">Raw Materials</field>
+        </record>
+        <record id="dds_cat_operations" model="cash.flow.dds.category">
+            <field name="name">Production Operations</field>
+        </record>
+        <record id="dds_cat_support" model="cash.flow.dds.category">
+            <field name="name">Production Support</field>
+        </record>
+
+        <!-- DDS Articles -->
+        <record id="dds_art_raw_materials" model="cash.flow.dds.article">
+            <field name="name">Raw Materials Purchase</field>
+            <field name="category_id" ref="cash_flow.dds_cat_materials"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_components" model="cash.flow.dds.article">
+            <field name="name">Components Purchase</field>
+            <field name="category_id" ref="cash_flow.dds_cat_materials"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_packaging" model="cash.flow.dds.article">
+            <field name="name">Packaging Materials</field>
+            <field name="category_id" ref="cash_flow.dds_cat_materials"/>
+            <field name="transaction_type">expense</field>
+        </record>
+
+        <record id="dds_art_direct_labor" model="cash.flow.dds.article">
+            <field name="name">Direct Labor</field>
+            <field name="category_id" ref="cash_flow.dds_cat_operations"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_energy" model="cash.flow.dds.article">
+            <field name="name">Energy and Utilities</field>
+            <field name="category_id" ref="cash_flow.dds_cat_operations"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_maintenance" model="cash.flow.dds.article">
+            <field name="name">Equipment Maintenance</field>
+            <field name="category_id" ref="cash_flow.dds_cat_operations"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_consumables" model="cash.flow.dds.article">
+            <field name="name">Production Consumables</field>
+            <field name="category_id" ref="cash_flow.dds_cat_operations"/>
+            <field name="transaction_type">expense</field>
+        </record>
+
+        <record id="dds_art_qc" model="cash.flow.dds.article">
+            <field name="name">Quality Control</field>
+            <field name="category_id" ref="cash_flow.dds_cat_support"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_logistics" model="cash.flow.dds.article">
+            <field name="name">Internal Logistics</field>
+            <field name="category_id" ref="cash_flow.dds_cat_support"/>
+            <field name="transaction_type">expense</field>
+        </record>
+        <record id="dds_art_waste" model="cash.flow.dds.article">
+            <field name="name">Waste Disposal</field>
+            <field name="category_id" ref="cash_flow.dds_cat_support"/>
+            <field name="transaction_type">expense</field>
+        </record>
+
+        <!-- Cities -->
+        <record id="city_us_ny" model="res.city">
+            <field name="name">New York</field>
+            <field name="country_id" ref="base.us"/>
+        </record>
+        <record id="city_eu_berlin" model="res.city">
+            <field name="name">Berlin</field>
+            <field name="country_id" ref="base.de"/>
+        </record>
+        <record id="city_ua_kyiv" model="res.city">
+            <field name="name">Kyiv</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+
+        <!-- Cashiers -->
+        <record id="user_cashier_us_1" model="res.users">
+            <field name="name">Cashier USD 1</field>
+            <field name="login">cashier_us_1</field>
+            <field name="email">cashier_us_1@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_us_ny"/>
+        </record>
+        <record id="user_cashier_us_2" model="res.users">
+            <field name="name">Cashier USD 2</field>
+            <field name="login">cashier_us_2</field>
+            <field name="email">cashier_us_2@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_us_ny"/>
+        </record>
+
+        <record id="user_cashier_eur_1" model="res.users">
+            <field name="name">Cashier EUR 1</field>
+            <field name="login">cashier_eur_1</field>
+            <field name="email">cashier_eur_1@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_eu_berlin"/>
+        </record>
+        <record id="user_cashier_eur_2" model="res.users">
+            <field name="name">Cashier EUR 2</field>
+            <field name="login">cashier_eur_2</field>
+            <field name="email">cashier_eur_2@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_eu_berlin"/>
+        </record>
+
+        <record id="user_cashier_uah_1" model="res.users">
+            <field name="name">Cashier UAH 1</field>
+            <field name="login">cashier_uah_1</field>
+            <field name="email">cashier_uah_1@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_ua_kyiv"/>
+        </record>
+        <record id="user_cashier_uah_2" model="res.users">
+            <field name="name">Cashier UAH 2</field>
+            <field name="login">cashier_uah_2</field>
+            <field name="email">cashier_uah_2@example.com</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="city_id" ref="cash_flow.city_ua_kyiv"/>
+        </record>
+
+        <!-- Cashboxes USD -->
+        <record id="cashbox_us_1" model="cash.flow.cashbox">
+            <field name="name">USD Cashbox 1</field>
+            <field name="city_id" ref="cash_flow.city_us_ny"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_us_1"/>
+            <field name="currency_id" ref="base.USD"/>
+        </record>
+        <record id="cashbox_us_2" model="cash.flow.cashbox">
+            <field name="name">USD Cashbox 2</field>
+            <field name="city_id" ref="cash_flow.city_us_ny"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_us_2"/>
+            <field name="currency_id" ref="base.USD"/>
+        </record>
+
+        <!-- Cashboxes EUR -->
+        <record id="cashbox_eur_1" model="cash.flow.cashbox">
+            <field name="name">EUR Cashbox 1</field>
+            <field name="city_id" ref="cash_flow.city_eu_berlin"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_eur_1"/>
+            <field name="currency_id" ref="base.EUR"/>
+        </record>
+        <record id="cashbox_eur_2" model="cash.flow.cashbox">
+            <field name="name">EUR Cashbox 2</field>
+            <field name="city_id" ref="cash_flow.city_eu_berlin"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_eur_2"/>
+            <field name="currency_id" ref="base.EUR"/>
+        </record>
+
+        <!-- Cashboxes UAH -->
+        <record id="cashbox_uah_1" model="cash.flow.cashbox">
+            <field name="name">UAH Cashbox 1</field>
+            <field name="city_id" ref="cash_flow.city_ua_kyiv"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_uah_1"/>
+            <field name="currency_id" ref="base.UAH"/>
+        </record>
+        <record id="cashbox_uah_2" model="cash.flow.cashbox">
+            <field name="name">UAH Cashbox 2</field>
+            <field name="city_id" ref="cash_flow.city_ua_kyiv"/>
+            <field name="cashier_user_id" ref="cash_flow.user_cashier_uah_2"/>
+            <field name="currency_id" ref="base.UAH"/>
+        </record>
+
+        <!-- Actual Transactions (2026-02-01 to 2026-03-09) -->
+        <record id="tx_20260201_1" model="cash.flow.transaction">
+            <field name="date">2026-02-01</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">1200</field>
+        </record>
+        <record id="tx_20260202_1" model="cash.flow.transaction">
+            <field name="date">2026-02-02</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">450</field>
+        </record>
+        <record id="tx_20260203_1" model="cash.flow.transaction">
+            <field name="date">2026-02-03</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">30000</field>
+        </record>
+        <record id="tx_20260204_1" model="cash.flow.transaction">
+            <field name="date">2026-02-04</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">980</field>
+        </record>
+        <record id="tx_20260205_1" model="cash.flow.transaction">
+            <field name="date">2026-02-05</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">760</field>
+        </record>
+        <record id="tx_20260206_1" model="cash.flow.transaction">
+            <field name="date">2026-02-06</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">18000</field>
+        </record>
+        <record id="tx_20260208_1" model="cash.flow.transaction">
+            <field name="date">2026-02-08</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">920</field>
+        </record>
+        <record id="tx_20260209_1" model="cash.flow.transaction">
+            <field name="date">2026-02-09</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">9500</field>
+        </record>
+        <record id="tx_20260211_1" model="cash.flow.transaction">
+            <field name="date">2026-02-11</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">300</field>
+        </record>
+        <record id="tx_20260213_1" model="cash.flow.transaction">
+            <field name="date">2026-02-13</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">510</field>
+        </record>
+        <record id="tx_20260214_1" model="cash.flow.transaction">
+            <field name="date">2026-02-14</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">690</field>
+        </record>
+        <record id="tx_20260215_1" model="cash.flow.transaction">
+            <field name="date">2026-02-15</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">14000</field>
+        </record>
+        <record id="tx_20260217_1" model="cash.flow.transaction">
+            <field name="date">2026-02-17</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">1150</field>
+        </record>
+        <record id="tx_20260218_1" model="cash.flow.transaction">
+            <field name="date">2026-02-18</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">6000</field>
+        </record>
+        <record id="tx_20260220_1" model="cash.flow.transaction">
+            <field name="date">2026-02-20</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">990</field>
+        </record>
+        <record id="tx_20260221_1" model="cash.flow.transaction">
+            <field name="date">2026-02-21</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">7300</field>
+        </record>
+        <record id="tx_20260223_1" model="cash.flow.transaction">
+            <field name="date">2026-02-23</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">540</field>
+        </record>
+        <record id="tx_20260224_1" model="cash.flow.transaction">
+            <field name="date">2026-02-24</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">17000</field>
+        </record>
+        <record id="tx_20260225_1" model="cash.flow.transaction">
+            <field name="date">2026-02-25</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">620</field>
+        </record>
+        <record id="tx_20260226_1" model="cash.flow.transaction">
+            <field name="date">2026-02-26</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">310</field>
+        </record>
+        <record id="tx_20260227_1" model="cash.flow.transaction">
+            <field name="date">2026-02-27</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">26000</field>
+        </record>
+        <record id="tx_20260228_1" model="cash.flow.transaction">
+            <field name="date">2026-02-28</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">530</field>
+        </record>
+        <record id="tx_20260301_1" model="cash.flow.transaction">
+            <field name="date">2026-03-01</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">840</field>
+        </record>
+        <record id="tx_20260302_1" model="cash.flow.transaction">
+            <field name="date">2026-03-02</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">9500</field>
+        </record>
+        <record id="tx_20260303_1" model="cash.flow.transaction">
+            <field name="date">2026-03-03</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">700</field>
+        </record>
+        <record id="tx_20260304_1" model="cash.flow.transaction">
+            <field name="date">2026-03-04</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">620</field>
+        </record>
+        <record id="tx_20260305_1" model="cash.flow.transaction">
+            <field name="date">2026-03-05</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">19000</field>
+        </record>
+        <record id="tx_20260307_1" model="cash.flow.transaction">
+            <field name="date">2026-03-07</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">930</field>
+        </record>
+        <record id="tx_20260308_1" model="cash.flow.transaction">
+            <field name="date">2026-03-08</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">7800</field>
+        </record>
+        <record id="tx_20260309_1" model="cash.flow.transaction">
+            <field name="date">2026-03-09</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">560</field>
+        </record>
+
+        <!-- Planned Transactions (Second half of March 2026) -->
+        <record id="tx_20260316_p1" model="cash.flow.transaction">
+            <field name="date">2026-03-16</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">420</field>
+        </record>
+        <record id="tx_20260318_p2" model="cash.flow.transaction">
+            <field name="date">2026-03-18</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">1100</field>
+        </record>
+        <record id="tx_20260319_p3" model="cash.flow.transaction">
+            <field name="date">2026-03-19</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">12000</field>
+        </record>
+        <record id="tx_20260320_p4" model="cash.flow.transaction">
+            <field name="date">2026-03-20</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">760</field>
+        </record>
+        <record id="tx_20260321_p5" model="cash.flow.transaction">
+            <field name="date">2026-03-21</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">540</field>
+        </record>
+        <record id="tx_20260323_p6" model="cash.flow.transaction">
+            <field name="date">2026-03-23</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">21000</field>
+        </record>
+        <record id="tx_20260325_p7" model="cash.flow.transaction">
+            <field name="date">2026-03-25</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">310</field>
+        </record>
+        <record id="tx_20260327_p8" model="cash.flow.transaction">
+            <field name="date">2026-03-27</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">980</field>
+        </record>
+        <record id="tx_20260329_p9" model="cash.flow.transaction">
+            <field name="date">2026-03-29</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
+            <field name="transaction_type">expense</field>
+            <field name="amount">15000</field>
+        </record>
+        <record id="tx_20260331_p10" model="cash.flow.transaction">
+            <field name="date">2026-03-31</field>
+            <field name="is_planned">1</field>
+            <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
+            <field name="transaction_type">income</field>
+            <field name="amount">670</field>
+        </record>
+    </data>
+</odoo>

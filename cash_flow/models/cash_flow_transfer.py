@@ -54,7 +54,7 @@ class CashFlowTransfer(models.Model):
     def create(self, vals_list):
         records = super().create(vals_list)
         for rec in records:
-            rec.name = f"Transfer №{rec.id}"
+            rec.name = f"Transfer {rec.id}"
         return records
 
     @api.constrains("source_cashbox_id", "destination_cashbox_id")

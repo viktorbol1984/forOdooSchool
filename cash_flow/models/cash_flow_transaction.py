@@ -7,7 +7,7 @@ class CashFlowTransaction(models.Model):
     _description = "Cashbox Transaction"
     _order = "date desc, id desc"
 
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, default="Transaction 0", copy=False, readonly=True)
     date = fields.Date(required=True, default=fields.Date.today)
     is_planned = fields.Boolean(string="Planned", default=False)
     cashbox_id = fields.Many2one(
@@ -51,6 +51,13 @@ class CashFlowTransaction(models.Model):
         for rec in self:
             if rec.partner_id and not rec.article_id:
                 rec.article_id = rec.partner_id.default_dds_article_id
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        for rec in records:
+            rec.name = f"Transaction {rec.id}"
+        return records
 
     @api.constrains("is_planned", "date")
     def _check_planned_date_is_future(self):

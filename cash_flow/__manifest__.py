@@ -10,8 +10,12 @@
     "data": [
         "security/ir.model.access.csv",
         "views/cash_flow_views.xml",
+        "wizard/forecast_wizard_views.xml",
         "views/res_partner_views.xml",
         "views/res_users_views.xml",
+    ],
+    "demo": [
+        "demo/cash_flow_demo.xml",
     ],
     "application": True,
     "installable": True,

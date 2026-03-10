@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="view_forecast_wizard_form" model="ir.ui.view">
+            <field name="name">forecast.wizard.form</field>
+            <field name="model">forecast.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cash Flow Forecast">
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <footer>
+                        <button name="action_generate" type="object" string="Generate" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_forecast_wizard" model="ir.actions.act_window">
+            <field name="name">Forecast</field>
+            <field name="res_model">forecast.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_cash_flow_forecast" name="Forecast" parent="menu_cash_flow_root" action="action_forecast_wizard" sequence="25"/>
+    </data>
+</odoo>
