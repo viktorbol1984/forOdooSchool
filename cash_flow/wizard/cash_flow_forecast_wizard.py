@@ -83,14 +83,13 @@ class CashFlowForecastWizard(models.TransientModel):
 
     def action_compute(self):
         self.ensure_one()
-        if not self.line_ids:
-            self._compute_lines()
+        self._compute_lines()
         return {
             "type": "ir.actions.act_window",
             "name": "Forecast Pivot",
             "res_model": "cash.flow.forecast.wizard.line",
             "view_mode": "pivot",
-            "target": "new",
+            "target": "current",
             "domain": [("wizard_id", "=", self.id)],
             "views": [(self.env.ref("cash_flow.view_cash_flow_forecast_wizard_line_pivot").id, "pivot")],
         }
