@@ -94,6 +94,10 @@ class CashFlowForecastWizard(models.TransientModel):
             "views": [(self.env.ref("cash_flow.view_cash_flow_forecast_wizard_line_pivot").id, "pivot")],
         }
 
+    def action_print(self):
+        self.ensure_one()
+        return {"type": "ir.actions.act_window_close"}
+
     def _compute_start_balance(self, cashbox):
         domain = [
             ("cashbox_id", "=", cashbox.id),

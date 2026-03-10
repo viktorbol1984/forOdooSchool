@@ -28,6 +28,7 @@
                     </group>
                     <footer>
                         <button name="action_compute" type="object" string="Compute" class="btn-primary"/>
+                        <button name="action_print" type="object" string="Print" class="btn-secondary"/>
                         <button string="Close" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
