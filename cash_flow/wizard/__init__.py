@@ -1,1 +1,1 @@
-from . import forecast_wizard
+from . import cash_flow_forecast_wizard

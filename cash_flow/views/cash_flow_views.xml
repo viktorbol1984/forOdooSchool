@@ -1,7 +1,7 @@
 <odoo>
     <data>
-        <record id="view_cash_flow_cashbox_tree" model="ir.ui.view">
-            <field name="name">cash.flow.cashbox.tree</field>
+        <record id="view_cash_flow_cashbox_list" model="ir.ui.view">
+            <field name="name">cash.flow.cashbox.list</field>
             <field name="model">cash.flow.cashbox</field>
             <field name="arch" type="xml">
                 <list>
@@ -32,8 +32,8 @@
             </field>
         </record>
 
-        <record id="view_cash_flow_transaction_tree" model="ir.ui.view">
-            <field name="name">cash.flow.transaction.tree</field>
+        <record id="view_cash_flow_transaction_list" model="ir.ui.view">
+            <field name="name">cash.flow.transaction.list</field>
             <field name="model">cash.flow.transaction</field>
             <field name="arch" type="xml">
                 <list>
@@ -73,8 +73,8 @@
             </field>
         </record>
 
-        <record id="view_cash_flow_dds_article_tree" model="ir.ui.view">
-            <field name="name">cash.flow.dds.article.tree</field>
+        <record id="view_cash_flow_dds_article_list" model="ir.ui.view">
+            <field name="name">cash.flow.dds.article.list</field>
             <field name="model">cash.flow.dds.article</field>
             <field name="arch" type="xml">
                 <list>
@@ -104,8 +104,8 @@
             </field>
         </record>
 
-        <record id="view_cash_flow_dds_category_tree" model="ir.ui.view">
-            <field name="name">cash.flow.dds.category.tree</field>
+        <record id="view_cash_flow_dds_category_list" model="ir.ui.view">
+            <field name="name">cash.flow.dds.category.list</field>
             <field name="model">cash.flow.dds.category</field>
             <field name="arch" type="xml">
                 <list>
@@ -142,8 +142,8 @@
             </field>
         </record>
 
-        <record id="view_cash_flow_transfer_tree" model="ir.ui.view">
-            <field name="name">cash.flow.transfer.tree</field>
+        <record id="view_cash_flow_transfer_list" model="ir.ui.view">
+            <field name="name">cash.flow.transfer.list</field>
             <field name="model">cash.flow.transfer</field>
             <field name="arch" type="xml">
                 <list>

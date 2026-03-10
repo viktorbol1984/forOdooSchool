@@ -1,29 +1,50 @@
 <odoo>
     <data>
-        <record id="view_forecast_wizard_form" model="ir.ui.view">
-            <field name="name">forecast.wizard.form</field>
-            <field name="model">forecast.wizard</field>
+        <record id="view_cash_flow_forecast_wizard_line_pivot" model="ir.ui.view">
+            <field name="name">cash.flow.forecast.wizard.line.pivot</field>
+            <field name="model">cash.flow.forecast.wizard.line</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="cashbox_id" type="row"/>
+                    <field name="date" type="col" interval="day"/>
+                    <field name="income" type="measure"/>
+                    <field name="expense" type="measure"/>
+                    <field name="balance" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_cash_flow_forecast_wizard_form" model="ir.ui.view">
+            <field name="name">cash.flow.forecast.wizard.form</field>
+            <field name="model">cash.flow.forecast.wizard</field>
             <field name="arch" type="xml">
                 <form string="Cash Flow Forecast">
                     <group>
+                        <field name="cashbox_ids" widget="many2many_tags"/>
                         <field name="date_from"/>
                         <field name="date_to"/>
+                        <field name="include_actual"/>
+                        <field name="include_planned"/>
                     </group>
                     <footer>
-                        <button name="action_generate" type="object" string="Generate" class="btn-primary"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        <button name="action_compute" type="object" string="Compute" class="btn-primary"/>
+                        <button string="Close" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
             </field>
         </record>
 
-        <record id="action_forecast_wizard" model="ir.actions.act_window">
+        <record id="action_cash_flow_forecast_wizard" model="ir.actions.act_window">
             <field name="name">Forecast</field>
-            <field name="res_model">forecast.wizard</field>
+            <field name="res_model">cash.flow.forecast.wizard</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <menuitem id="menu_cash_flow_forecast" name="Forecast" parent="menu_cash_flow_root" action="action_forecast_wizard" sequence="25"/>
+        <menuitem id="menu_cash_flow_forecast"
+                  name="Forecast"
+                  parent="menu_cash_flow_root"
+                  action="action_cash_flow_forecast_wizard" sequence="25"
+        />
     </data>
 </odoo>
