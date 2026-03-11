@@ -31,6 +31,19 @@
             </field>
         </record>
 
+        <record id="view_cash_flow_dds_article_search" model="ir.ui.view">
+            <field name="name">cash.flow.dds.article.search</field>
+            <field name="model">cash.flow.dds.article</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <searchpanel>
+                        <field name="category_id"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
         <record id="action_cash_flow_dds_article" model="ir.actions.act_window">
             <field name="name">DDS Articles</field>
             <field name="res_model">cash.flow.dds.article</field>
