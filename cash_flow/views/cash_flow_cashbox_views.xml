@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="view_cash_flow_cashbox_list" model="ir.ui.view">
+            <field name="name">cash.flow.cashbox.list</field>
+            <field name="model">cash.flow.cashbox</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="city_id"/>
+                    <field name="cashier_user_id"/>
+                    <field name="currency_id"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_cash_flow_cashbox_form" model="ir.ui.view">
+            <field name="name">cash.flow.cashbox.form</field>
+            <field name="model">cash.flow.cashbox</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="city_id"/>
+                            <field name="cashier_user_id"/>
+                            <field name="currency_id"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cash_flow_cashbox" model="ir.actions.act_window">
+            <field name="name">Cashboxes</field>
+            <field name="res_model">cash.flow.cashbox</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>
