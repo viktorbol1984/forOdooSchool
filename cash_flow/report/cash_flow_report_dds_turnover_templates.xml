@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <template id="report_dds_turnover">
+      <t t-call="web.basic_layout">
+        <div class="page">
+          <h2>DDS Article Turnover</h2>
+          <table class="table table-sm o_main_table">
+            <thead>
+              <tr>
+                <th>Article</th>
+                <th>Category</th>
+                <th class="text-end">Income</th>
+                <th class="text-end">Expense</th>
+                <th class="text-end">Net</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="lines"
+                 t-as="article">
+                <tr>
+                  <td><span t-esc="article['article'].display_name"/></td>
+                  <td><span t-esc="article['category'].display_name"/></td>
+                  <td class="text-end"><span t-esc="'%.2f' % article['income']"/></td>
+                  <td class="text-end"><span t-esc="'%.2f' % article['expense']"/></td>
+                  <td class="text-end"><span t-esc="'%.2f' % article['net']"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </template>
+
+    <record id="action_cash_flow_report_dds_turnover" model="ir.actions.report">
+      <field name="name">DDS Article Turnover</field>
+      <field name="model">cash.flow.dds.article</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">cash_flow.report_dds_turnover</field>
+      <field name="report_file">cash_flow.report_dds_turnover</field>
+    </record>
+  </data>
+</odoo>

@@ -44,6 +44,7 @@ class CashFlowTransaction(models.Model):
         "cash.flow.dds.article",
         string="DDS Article",
         ondelete="restrict",
+        required=True,
     )
 
     @api.onchange("partner_id")

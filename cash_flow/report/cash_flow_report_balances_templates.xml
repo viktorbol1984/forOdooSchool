@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <template id="report_cashbox_balances">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <h2>Cashbox Balances</h2>
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th>Cashbox</th>
+                                <th>Currency</th>
+                                <th class="text-end">Income</th>
+                                <th class="text-end">Expense</th>
+                                <th class="text-end">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="lines" t-as="line">
+                                <tr>
+                                    <td><span t-esc="line['cashbox'].display_name"/></td>
+                                    <td><span t-esc="line['currency'].name"/></td>
+                                    <td class="text-end"><span t-esc="'%.2f' % line['income']"/></td>
+                                    <td class="text-end"><span t-esc="'%.2f' % line['expense']"/></td>
+                                    <td class="text-end"><span t-esc="'%.2f' % line['balance']"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <record id="action_cash_flow_report_balances" model="ir.actions.report">
+            <field name="name">Cashbox Balances</field>
+            <field name="model">cash.flow.cashbox</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">cash_flow.report_cashbox_balances</field>
+            <field name="report_file">cash_flow.report_cashbox_balances</field>
+        </record>
+    </data>
+</odoo>
