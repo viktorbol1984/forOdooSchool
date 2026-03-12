@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="rule_cash_flow_transaction_own_cashbox" model="ir.rule">
+            <field name="name">Cash Flow Transaction: own cashbox</field>
+            <field name="model_id" ref="model_cash_flow_transaction"/>
+            <field name="domain_force">[('cashbox_id.cashier_user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('cash_flow.group_cash_flow_user'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="rule_cash_flow_cashbox_own_city" model="ir.rule">
+            <field name="name">Cash Flow Cashbox: own city</field>
+            <field name="model_id" ref="model_cash_flow_cashbox"/>
+            <field name="domain_force">[('city_id', '=', user.city_id.id)]</field>
+            <field name="groups" eval="[(4, ref('cash_flow.group_cash_flow_user'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>

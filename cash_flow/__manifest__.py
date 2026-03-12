@@ -8,7 +8,9 @@
     "images": ["static/description/icon.png"],
     "depends": ["base", "base_address_extended"],
     "data": [
+        "security/cash_flow_groups.xml",
         "security/ir.model.access.csv",
+        "security/cash_flow_security.xml",
         "report/cash_flow_report_balances_templates.xml",
         "report/cash_flow_report_dds_turnover_templates.xml",
         "views/cash_flow_cashbox_views.xml",
