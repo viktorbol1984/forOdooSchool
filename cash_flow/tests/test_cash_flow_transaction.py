@@ -3,7 +3,10 @@ from odoo.tests.common import TransactionCase, tagged
 
 @tagged("post_install", "-at_install", "cash_flow")
 class TestCashFlowTransaction(TransactionCase):
+    """Creation test for transactions."""
+
     def test_01_create_transaction(self):
+        """Transaction can be created with required fields."""
         city = self.env["res.city"].create(
             {
                 "name": "Test City",

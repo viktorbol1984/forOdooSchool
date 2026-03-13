@@ -3,6 +3,8 @@ from odoo.exceptions import ValidationError
 
 
 class CashFlowCashbox(models.Model):
+    """Cashbox model with cashier and city restrictions."""
+
     _name = "cash.flow.cashbox"
     _description = "Cashbox"
 
@@ -40,6 +42,7 @@ class CashFlowCashbox(models.Model):
 
     @api.constrains("city_id", "cashier_user_id")
     def _check_cashier_city(self):
+        """Ensure the cashier belongs to the same city as the cashbox."""
         for rec in self:
             if rec.cashier_user_id and rec.city_id != rec.cashier_user_id.city_id:
                 raise ValidationError("Cashier city must match cashbox city.")

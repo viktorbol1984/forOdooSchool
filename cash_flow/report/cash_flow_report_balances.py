@@ -2,11 +2,14 @@ from odoo import api, models
 
 
 class CashFlowReportBalances(models.AbstractModel):
+    """Report for cashbox balances."""
+
     _name = "report.cash_flow.report_cashbox_balances"
     _description = "Cashbox Balances Report"
 
     @api.model
     def _get_report_values(self, docids, data=None):
+        """Build report lines with income/expense per cashbox."""
         Сashbox = self.env["cash.flow.cashbox"].sudo()
         Transaction = self.env["cash.flow.transaction"].sudo()
 

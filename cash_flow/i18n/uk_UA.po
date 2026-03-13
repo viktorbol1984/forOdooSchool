@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following module:
+#	* cash_flow
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"POT-Creation-Date: 2026-02-28 00:00+0000\n"
+"PO-Revision-Date: 2026-02-28 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14) ? 2 : 3);\n"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_root
+#. module: cash_flow
+msgid "Cash Flow"
+msgstr "Грошовий потік"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_cashboxes
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_cashbox
+#. module: cash_flow
+msgid "Cashboxes"
+msgstr "Каси"
+
+#. module: cash_flow
+msgid "Cashbox"
+msgstr "Каса"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_transfers
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_transfer
+#. module: cash_flow
+msgid "Transfers"
+msgstr "Перекази"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_dds_categories
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_dds_category
+#. module: cash_flow
+msgid "DDS Categories"
+msgstr "Категорії ДДС"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_dds_articles
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_dds_article
+#. module: cash_flow
+msgid "DDS Articles"
+msgstr "Статті ДДС"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_reports
+#. module: cash_flow
+msgid "Reports"
+msgstr "Звіти"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_report_balances
+#: model:ir.actions.report,name:cash_flow.action_cash_flow_report_balances
+#. module: cash_flow
+msgid "Cashbox Balances"
+msgstr "Залишки по касах"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_report_dds_turnover
+#: model:ir.actions.report,name:cash_flow.action_cash_flow_report_dds_turnover
+#. module: cash_flow
+msgid "DDS Article Turnover"
+msgstr "Обороти по статтях ДДС"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_forecast
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_forecast_wizard
+#. module: cash_flow
+msgid "Payment Calendar"
+msgstr "Платіжний календар"
+
+#. module: cash_flow
+msgid "Compute"
+msgstr "Розрахувати"
+
+#. module: cash_flow
+msgid "Close"
+msgstr "Закрити"
+
+#. module: cash_flow
+msgid "Planned"
+msgstr "Планова"
+
+#. module: cash_flow
+msgid "Cashbox Transaction"
+msgstr "Транзакція каси"
+
+#. module: cash_flow
+msgid "Cashbox Balances Report"
+msgstr "Звіт про залишки по касах"
+
+#. module: cash_flow
+msgid "DDS Article Turnover Report"
+msgstr "Звіт про обороти по статтях ДДС"
+
+#. module: cash_flow
+msgid "City"
+msgstr "Місто"
+
+#. module: cash_flow
+msgid "Cashier"
+msgstr "Касир"
+
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow_transactions
+#: model:ir.actions.act_window,name:cash_flow.action_cash_flow_transaction
+#. module: cash_flow
+msgid "Transactions"
+msgstr "Транзакції"
+
+#. module: cash_flow
+msgid "Default DDS Article"
+msgstr "Стаття ДДС за замовчуванням"
+
+#. module: cash_flow
+msgid "Transfer"
+msgstr "Переказ"
+
+#. module: cash_flow
+msgid "Partner"
+msgstr "Контрагент"
+
+#. module: cash_flow
+msgid "DDS Article"
+msgstr "Стаття ДДС"
+
+#. module: cash_flow
+msgid "DDS Category"
+msgstr "Категорія ДДС"
+
+#. module: cash_flow
+msgid "Parent Category"
+msgstr "Батьківська категорія"
+
+#. module: cash_flow
+msgid "Child Categories"
+msgstr "Дочірні категорії"
+
+#. module: cash_flow
+msgid "Source Cashbox"
+msgstr "Каса-джерело"
+
+#. module: cash_flow
+msgid "Destination Cashbox"
+msgstr "Каса-одержувач"
+
+#. module: cash_flow
+msgid "Expense Transaction"
+msgstr "Витратна транзакція"
+
+#. module: cash_flow
+msgid "Income Transaction"
+msgstr "Прибуткова транзакція"
+
+#. module: cash_flow
+msgid "Post"
+msgstr "Провести"
+
+#. module: cash_flow
+msgid "Posted Transactions"
+msgstr "Проведені транзакції"
+
+#. module: cash_flow
+msgid "Children"
+msgstr "Дочірні"
+
+#. module: cash_flow
+msgid "Cash Flow Forecast"
+msgstr "Прогноз грошового потоку"
+
+#. module: cash_flow
+msgid "Print"
+msgstr "Друк"
+
+#. module: cash_flow
+msgid "Include planned"
+msgstr "Враховувати планові"
+
+#. module: cash_flow
+msgid "Include actual"
+msgstr "Враховувати фактичні"
+
+#. module: cash_flow
+msgid "Cash Gap"
+msgstr "Касовий розрив"

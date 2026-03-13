@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow</title>
+</head>
+<body>
+<section style="max-width: 960px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.5; color: #222;">
+    <div style="display: flex; align-items: center; gap: 16px; margin: 24px 0;">
+        <img src="icon.png" alt="Cash Flow Icon" style="width: 72px; height: 72px; border-radius: 12px;">
+        <div>
+            <h1 style="margin: 0; font-size: 28px;">Cash Flow</h1>
+            <p style="margin: 6px 0 0 0; color: #555;">Cashbox and cash flow management for Odoo 19</p>
+        </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+        <strong>Cash Flow</strong> helps manage cashboxes, transactions, transfers, and DDS classification.
+    </p>
+
+    <h2>Main Features</h2>
+    <ul>
+        <li>Cashboxes with assigned cashiers and cities</li>
+        <li>Actual and planned cash flow transactions</li>
+        <li>DDS categories and articles</li>
+        <li>Cashbox transfers with posting logic</li>
+        <li>Forecast wizard (payment calendar)</li>
+        <li>Printable reports</li>
+    </ul>
+
+    <h2>Business Rules</h2>
+    <ul>
+        <li>Planned transactions must have a future date</li>
+        <li>Transfer posting creates income/expense transactions</li>
+        <li>Cashiers are restricted to their own cashboxes</li>
+    </ul>
+
+    <h2>Wizards</h2>
+    <ul>
+        <li>Cash flow forecast wizard</li>
+    </ul>
+
+    <h2>Reports</h2>
+    <ul>
+        <li>Cashbox balances</li>
+        <li>DDS article turnover</li>
+    </ul>
+
+    <h2>Data & Translations</h2>
+    <p>
+        The module includes demo data and supports translations via <code>i18n/*.po</code>.
+    </p>
+
+    <h2>Tests</h2>
+    <p>
+        Minimal tests are included for main models.
+    </p>
+</section>
+</body>
+</html>

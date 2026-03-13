@@ -3,6 +3,8 @@ from odoo.exceptions import ValidationError
 
 
 class CashFlowTransaction(models.Model):
+    """Cash flow transaction for a specific cashbox."""
+
     _name = "cash.flow.transaction"
     _description = "Cashbox Transaction"
     _order = "date desc, id desc"
@@ -49,12 +51,14 @@ class CashFlowTransaction(models.Model):
 
     @api.onchange("partner_id")
     def _onchange_partner_id_set_default_article(self):
+        """Set default DDS article from the selected partner when empty."""
         for rec in self:
             if rec.partner_id and not rec.article_id:
                 rec.article_id = rec.partner_id.default_dds_article_id
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Assign a human-readable name after record creation."""
         records = super().create(vals_list)
         for rec in records:
             rec.name = f"Transaction {rec.id}"
@@ -62,6 +66,7 @@ class CashFlowTransaction(models.Model):
 
     @api.constrains("is_planned", "date")
     def _check_planned_date_is_future(self):
+        """Require planned transactions to be in the future."""
         today = fields.Date.today()
         for rec in self:
             if rec.is_planned and rec.date and rec.date <= today:

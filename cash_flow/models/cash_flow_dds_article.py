@@ -2,6 +2,8 @@ from odoo import fields, models
 
 
 class CashFlowDdsArticle(models.Model):
+    """DDS article for transaction classification."""
+
     _name = "cash.flow.dds.article"
     _description = "DDS Article"
     _order = "name"

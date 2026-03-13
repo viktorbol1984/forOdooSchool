@@ -2,6 +2,8 @@ from odoo import fields, models
 
 
 class CashFlowDdsCategory(models.Model):
+    """Hierarchical DDS category."""
+
     _name = "cash.flow.dds.category"
     _description = "DDS Category"
     _parent_name = "parent_id"

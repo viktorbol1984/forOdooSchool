@@ -2,11 +2,14 @@ from odoo import api, models
 
 
 class CashFlowReportDDSTurnover(models.AbstractModel):
+    """Report for DDS article turnover."""
+
     _name = "report.cash_flow.report_dds_turnover"
     _description = "DDS Article Turnover Report"
 
     @api.model
     def _get_report_values(self, docids, data=None):
+        """Build report lines with income/expense per DDS article."""
         Article = self.env["cash.flow.dds.article"].sudo()
         Transaction = self.env["cash.flow.transaction"].sudo()
 

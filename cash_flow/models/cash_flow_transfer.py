@@ -3,6 +3,8 @@ from odoo.exceptions import UserError, ValidationError
 
 
 class CashFlowTransfer(models.Model):
+    """Transfer between two cashboxes with posting logic."""
+
     _name = "cash.flow.transfer"
     _description = "Cashbox Transfer"
     _order = "date desc, id desc"
@@ -52,6 +54,7 @@ class CashFlowTransfer(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Assign a human-readable transfer name after creation."""
         records = super().create(vals_list)
         for rec in records:
             rec.name = f"Transfer {rec.id}"
@@ -59,12 +62,14 @@ class CashFlowTransfer(models.Model):
 
     @api.constrains("source_cashbox_id", "destination_cashbox_id")
     def _check_cashboxes_are_different(self):
+        """Ensure source and destination cashboxes are not the same."""
         for rec in self:
             if rec.source_cashbox_id and rec.source_cashbox_id == rec.destination_cashbox_id:
                 raise ValidationError("Source and destination cashboxes must be different.")
 
     @api.constrains("source_cashbox_id", "destination_cashbox_id")
     def _check_same_currency(self):
+        """Ensure both cashboxes use the same currency."""
         for rec in self:
             if (
                 rec.source_cashbox_id
@@ -75,11 +80,13 @@ class CashFlowTransfer(models.Model):
 
     @api.constrains("amount")
     def _check_positive_amount(self):
+        """Ensure transfer amount is positive."""
         for rec in self:
             if rec.amount <= 0:
                 raise ValidationError("Transfer amount must be greater than zero.")
 
     def action_post(self):
+        """Post transfer and create matching income/expense transactions."""
         for rec in self:
             if rec.state != "draft":
                 continue
@@ -114,6 +121,7 @@ class CashFlowTransfer(models.Model):
             )
 
     def unlink(self):
+        """Prevent deletion of posted transfers."""
         for rec in self:
             if rec.state == "posted":
                 raise UserError("You cannot delete a posted transfer.")

@@ -4,6 +4,8 @@ from odoo import api, fields, models
 
 
 class CashFlowForecastWizard(models.TransientModel):
+    """Wizard to compute forecast balances for cashboxes."""
+
     _name = "cash.flow.forecast.wizard"
     _description = "Cash Flow Forecast Wizard"
 
@@ -31,6 +33,7 @@ class CashFlowForecastWizard(models.TransientModel):
     )
 
     def _compute_lines(self):
+        """Compute forecast lines for the selected cashboxes and period."""
         self.ensure_one()
         self.line_ids.unlink()
 
@@ -82,6 +85,7 @@ class CashFlowForecastWizard(models.TransientModel):
             self.env["cash.flow.forecast.wizard.line"].create(lines_to_create)
 
     def action_compute(self):
+        """Compute forecast lines and open the pivot view."""
         self.ensure_one()
         self._compute_lines()
         return {
@@ -95,10 +99,12 @@ class CashFlowForecastWizard(models.TransientModel):
         }
 
     def action_print(self):
+        """Close the wizard; placeholder for print action."""
         self.ensure_one()
         return {"type": "ir.actions.act_window_close"}
 
     def _compute_start_balance(self, cashbox):
+        """Compute balance before the forecast start date for a cashbox."""
         domain = [
             ("cashbox_id", "=", cashbox.id),
             ("date", "<", self.date_from),
@@ -111,6 +117,8 @@ class CashFlowForecastWizard(models.TransientModel):
 
 
 class CashFlowForecastWizardLine(models.TransientModel):
+    """Forecast line with daily balances per cashbox."""
+
     _name = "cash.flow.forecast.wizard.line"
     _description = "Cash Flow Forecast Wizard Line"
     _order = "cashbox_id, date asc"
