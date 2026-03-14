@@ -1,11 +1,11 @@
 <odoo>
     <data>
-        <menuitem id="menu_cash_flow_root" name="Cash Flow" sequence="10"/>
+        <menuitem id="menu_cash_flow_root" name="Cash Flow" web_icon="cash_flow,static/description/icon.png" sequence="10"/>
         <menuitem id="menu_cash_flow_cashboxes" name="Cashboxes" parent="menu_cash_flow_root" action="action_cash_flow_cashbox" sequence="10"/>
-        <menuitem id="menu_cash_flow_transfers" name="Transfers" parent="menu_cash_flow_root" action="action_cash_flow_transfer" sequence="20"/>
-        <menuitem id="menu_cash_flow_dds_categories" name="DDS Categories" parent="menu_cash_flow_root" action="action_cash_flow_dds_category" sequence="30"/>
-        <menuitem id="menu_cash_flow_dds_articles" name="DDS Articles" parent="menu_cash_flow_root" action="action_cash_flow_dds_article" sequence="40"/>
-        <menuitem id="menu_cash_flow_transactions" name="Transactions" parent="menu_cash_flow_root" action="action_cash_flow_transaction" sequence="50"/>
+        <menuitem id="menu_cash_flow_dds_categories" name="DDS Categories" parent="menu_cash_flow_root" action="action_cash_flow_dds_category" sequence="20"/>
+        <menuitem id="menu_cash_flow_dds_articles" name="DDS Articles" parent="menu_cash_flow_root" action="action_cash_flow_dds_article" sequence="30"/>
+        <menuitem id="menu_cash_flow_transactions" name="Transactions" parent="menu_cash_flow_root" action="action_cash_flow_transaction" sequence="40"/>
+        <menuitem id="menu_cash_flow_transfers" name="Transfers" parent="menu_cash_flow_root" action="action_cash_flow_transfer" sequence="50"/>
         <menuitem id="menu_cash_flow_reports" name="Reports" parent="menu_cash_flow_root" sequence="60"/>
         <menuitem id="menu_cash_flow_report_balances" name="Cashbox Balances" parent="menu_cash_flow_reports" action="action_cash_flow_report_balances" sequence="10"/>
         <menuitem id="menu_cash_flow_report_dds_turnover" name="DDS Article Turnover" parent="menu_cash_flow_reports" action="action_cash_flow_report_dds_turnover" sequence="20"/>

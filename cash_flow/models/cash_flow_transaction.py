@@ -46,7 +46,6 @@ class CashFlowTransaction(models.Model):
         "cash.flow.dds.article",
         string="DDS Article",
         ondelete="restrict",
-        required=True,
     )
 
     @api.onchange("partner_id")
@@ -64,10 +63,3 @@ class CashFlowTransaction(models.Model):
             rec.name = f"Transaction {rec.id}"
         return records
 
-    @api.constrains("is_planned", "date")
-    def _check_planned_date_is_future(self):
-        """Require planned transactions to be in the future."""
-        today = fields.Date.today()
-        for rec in self:
-            if rec.is_planned and rec.date and rec.date <= today:
-                raise ValidationError("Planned transaction must have a future date.")

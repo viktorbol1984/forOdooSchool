@@ -4,11 +4,16 @@
         <record id="dds_cat_materials" model="cash.flow.dds.category">
             <field name="name">Raw Materials</field>
         </record>
+        <record id="dds_cat_production" model="cash.flow.dds.category">
+            <field name="name">Production</field>
+        </record>
         <record id="dds_cat_operations" model="cash.flow.dds.category">
             <field name="name">Production Operations</field>
+            <field name="parent_id" ref="dds_cat_production"/>
         </record>
         <record id="dds_cat_support" model="cash.flow.dds.category">
             <field name="name">Production Support</field>
+            <field name="parent_id" ref="dds_cat_production"/>
         </record>
 
         <!-- DDS Articles -->

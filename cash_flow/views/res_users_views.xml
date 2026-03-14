@@ -5,9 +5,21 @@
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='other_preferences']" position="inside">
+                <xpath expr="//page[@name='preferences']//group[@name='other_preferences']" position="inside">
                     <field name="city_id"/>
                 </xpath>
+            </field>
+        </record>
+        <record id="view_users_simple_form_inherit_cash_flow_city" model="ir.ui.view">
+            <field name="name">res.users.simple.form.inherit.cash.flow.city</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_simple_form"/>
+            <field name="arch" type="xml">
+                <form position="inside">
+                    <group>
+                        <field name="city_id"/>
+                    </group>
+                 </form>
             </field>
         </record>
     </data>
