@@ -98,11 +98,6 @@ class CashFlowForecastWizard(models.TransientModel):
             "views": [(self.env.ref("cash_flow.view_cash_flow_forecast_wizard_line_pivot").id, "pivot")],
         }
 
-    def action_print(self):
-        """Close the wizard; placeholder for print action."""
-        self.ensure_one()
-        return {"type": "ir.actions.act_window_close"}
-
     def _compute_start_balance(self, cashbox):
         """Compute balance before the forecast start date for a cashbox."""
         domain = [
