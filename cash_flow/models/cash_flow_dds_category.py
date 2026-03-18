@@ -23,5 +23,3 @@ class CashFlowDdsCategory(models.Model):
         "parent_id",
         string="Child Categories",
     )
-
-

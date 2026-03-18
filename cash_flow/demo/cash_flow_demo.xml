@@ -386,7 +386,7 @@
 
         <!-- Planned Transactions (Second half of March 2026) -->
         <record id="tx_20260316_p1" model="cash.flow.transaction">
-            <field name="date">2026-03-16</field>
+            <field name="date">2026-03-22</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
             <field name="transaction_type">expense</field>
@@ -394,7 +394,7 @@
             <field name="article_id" ref="cash_flow.dds_art_raw_materials"/>
         </record>
         <record id="tx_20260318_p2" model="cash.flow.transaction">
-            <field name="date">2026-03-18</field>
+            <field name="date">2026-03-23</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
             <field name="transaction_type">income</field>
@@ -402,7 +402,7 @@
             <field name="article_id" ref="cash_flow.dds_art_components"/>
         </record>
         <record id="tx_20260319_p3" model="cash.flow.transaction">
-            <field name="date">2026-03-19</field>
+            <field name="date">2026-03-24</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_uah_1"/>
             <field name="transaction_type">expense</field>
@@ -410,7 +410,7 @@
             <field name="article_id" ref="cash_flow.dds_art_packaging"/>
         </record>
         <record id="tx_20260320_p4" model="cash.flow.transaction">
-            <field name="date">2026-03-20</field>
+            <field name="date">2026-03-25</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
             <field name="transaction_type">income</field>
@@ -418,7 +418,7 @@
             <field name="article_id" ref="cash_flow.dds_art_direct_labor"/>
         </record>
         <record id="tx_20260321_p5" model="cash.flow.transaction">
-            <field name="date">2026-03-21</field>
+            <field name="date">2026-03-26</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_eur_2"/>
             <field name="transaction_type">expense</field>
@@ -426,7 +426,7 @@
             <field name="article_id" ref="cash_flow.dds_art_energy"/>
         </record>
         <record id="tx_20260323_p6" model="cash.flow.transaction">
-            <field name="date">2026-03-23</field>
+            <field name="date">2026-03-27</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_uah_2"/>
             <field name="transaction_type">income</field>
@@ -434,7 +434,7 @@
             <field name="article_id" ref="cash_flow.dds_art_maintenance"/>
         </record>
         <record id="tx_20260325_p7" model="cash.flow.transaction">
-            <field name="date">2026-03-25</field>
+            <field name="date">2026-03-28</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_us_1"/>
             <field name="transaction_type">expense</field>
@@ -442,7 +442,7 @@
             <field name="article_id" ref="cash_flow.dds_art_consumables"/>
         </record>
         <record id="tx_20260327_p8" model="cash.flow.transaction">
-            <field name="date">2026-03-27</field>
+            <field name="date">2026-03-29</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_eur_1"/>
             <field name="transaction_type">income</field>
@@ -458,7 +458,7 @@
             <field name="article_id" ref="cash_flow.dds_art_logistics"/>
         </record>
         <record id="tx_20260331_p10" model="cash.flow.transaction">
-            <field name="date">2026-03-31</field>
+            <field name="date">2026-03-26</field>
             <field name="is_planned">1</field>
             <field name="cashbox_id" ref="cash_flow.cashbox_us_2"/>
             <field name="transaction_type">income</field>

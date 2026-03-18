@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class CashFlowForecastWizard(models.TransientModel):
@@ -61,10 +61,10 @@ class CashFlowForecastWizard(models.TransientModel):
                 ]
                 day_lines = self.env["cash.flow.transaction"].search(day_domain)
                 income = sum(
-                    day_lines.filtered(lambda l: l.transaction_type == "income").mapped("amount")
+                    day_lines.filtered(lambda line: line.transaction_type == "income").mapped("amount")
                 )
                 expense = sum(
-                    day_lines.filtered(lambda l: l.transaction_type == "expense").mapped("amount")
+                    day_lines.filtered(lambda line: line.transaction_type == "expense").mapped("amount")
                 )
                 current_balance = current_balance + income - expense
 
@@ -106,8 +106,8 @@ class CashFlowForecastWizard(models.TransientModel):
             ("is_planned", "=", False),
         ]
         lines = self.env["cash.flow.transaction"].search(domain)
-        income = sum(lines.filtered(lambda l: l.transaction_type == "income").mapped("amount"))
-        expense = sum(lines.filtered(lambda l: l.transaction_type == "expense").mapped("amount"))
+        income = sum(lines.filtered(lambda line: line.transaction_type == "income").mapped("amount"))
+        expense = sum(lines.filtered(lambda line: line.transaction_type == "expense").mapped("amount"))
         return income - expense
 
 

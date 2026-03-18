@@ -1,5 +1,4 @@
 from odoo import api, fields, models
-from odoo.exceptions import ValidationError
 
 
 class CashFlowTransaction(models.Model):
@@ -62,4 +61,3 @@ class CashFlowTransaction(models.Model):
         for rec in records:
             rec.name = f"Transaction {rec.id}"
         return records
-
